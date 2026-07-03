@@ -1,1 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PRIMARY SEO TAGS -->
+    <title>DailyCalculator | 210+ Free Online Calculators - Finance, Math, Health & More</title>
+    <meta name="description" content="Access 210+ free online calculators on DailyCalculator. The most accurate tools for Finance, Health, Math, Geometry, and Unit Conversion. Fast, mobile-friendly, and professional.">
+    <meta name="keywords" content="DailyCalculator, free online calculator, emi calculator, mortgage calculator, math solver, bmi tracker, gpa calculator, scientific calculator, conversion tools, construction calculators">
+    <link rel="canonical" href="https://www.dailycalculator.netlify.app/" />
 
+    <!-- Open Graph (Social SEO) -->
+    <meta property="og:title" content="DailyCalculator | 210+ Professional Free Online Tools">
+    <meta property="og:description" content="Solve complex math, finance, and health problems with 210+ accurate online tools.">
+    <meta property="og:url" content="https://www.dailycalculator.netlify.app/">
+    <meta property="og:type" content="website">
+
+    <!-- External Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Roboto', arial, sans-serif; background-color: #f4f6f9; color: #333; scroll-behavior: smooth; }
+        .site-wrapper { max-width: 1180px; margin: 10px auto; background: white; border: 1px solid #ccc; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        /* Professional Branding */
+        .blue-header { background-color: #00509d; color: white; padding: 25px; }
+        .nav-gray { background-color: #e8e8e8; border-bottom: 1px solid #ccc; padding: 10px 25px; font-size: 14px; font-weight: bold; }
+        
+        /* Category Sections */
+        .cat-box { border: 1px solid #ddd; margin: 20px; border-radius: 4px; overflow: hidden; background: #fff; }
+        .cat-head { 
+            background-color: #f7f7f7; 
+            border-bottom: 1px solid #ddd; 
+            padding: 12px 20px; 
+            font-weight: 700; 
+            color: #00509d; 
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Grid Layout */
+        .card-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+            gap: 5px; 
+            padding: 15px; 
+        }
+        
+        /* Tool Card Links */
+        .tool-link { 
+            color: #00509d; 
+            text-decoration: none; 
+            font-size: 13.5px; 
+            padding: 5px 8px;
+            border-radius: 4px;
+            display: block;
+            transition: 0.2s;
+        }
+        .tool-link:hover { 
+            background-color: #f0f7ff;
+            color: #d00; 
+            text-decoration: underline; 
+        }
+        
+        /* Sticky Search Area */
+        .search-area { 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            background: white; 
+            padding: 15px; 
+            border-bottom: 2px solid #00509d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        #searchBar { 
+            width: 100%; 
+            padding: 12px 45px; 
+            border: 2px solid #ddd; 
+            border-radius: 6px; 
+            outline: none; 
+            font-size: 16px;
+        }
+        #searchBar:focus { border-color: #00509d; }
+        
+        .hidden-cat { display: none; }
+        h1 { font-size: 2.25rem; font-weight: 900; line-height: 1.2; }
+        @media (max-width: 768px) { .card-grid { grid-template-columns: 1fr 1fr; } h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper flex flex-col min-h-screen">
+        
+        <!-- Header: Brand H1 -->
+        <header class="blue-header flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div>
+                <h1><a href="home.html" title="DailyCalculator Home">DailyCalculator</a></h1>
+                <p class="text-blue-200 text-xs mt-1 uppercase tracking-widest font-bold">Precision Tools for Professionals & Daily Use</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <a href="index.html" class="bg-blue-800 border border-blue-400 px-8 py-3 rounded text-sm font-black hover:bg-blue-700 transition flex items-center shadow-lg">
+                    <i class="fas fa-home mr-2"></i> HOME
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-gray flex flex-wrap gap-5 text-gray-700">
+            <a href="#finance" class="hover:text-blue-700">Finance</a>
+            <span class="text-gray-300">|</span>
+            <a href="#health" class="hover:text-blue-700">Health</a>
+            <span class="text-gray-300">|</span>
+            <a href="#math" class="hover:text-blue-700">Math</a>
+            <span class="text-gray-300">|</span>
+            <a href="#geometry" class="hover:text-blue-700">Geometry</a>
+            <span class="text-gray-300">|</span>
+            <a href="#converters" class="hover:text-blue-700">Converters</a>
+        </nav>
+
+        <!-- Sticky Search Bar Section -->
+        <div class="search-area">
+            <div class="relative max-w-4xl mx-auto">
+                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                <input type="text" id="searchBar" onkeyup="filterTools()" placeholder="Search 210+ tools (e.g. EMI, BMI, Mortgage, Circle, Pressure)...">
+            </div>
+        </div>
+
+        <!-- MAIN TOOLS GRID -->
+        <main id="mainContent" class="flex-grow pb-12">
+
+            <!-- 1. FINANCIAL CALCULATORS -->
+            <section class="cat-box" id="finance">
+                <h2 class="cat-head"><i class="fas fa-hand-holding-dollar mr-3"></i> Financial Calculators</h2>
+                <div class="card-grid">
+                    <a href="mortgage-calculator.html" class="tool-link">Mortgage Calculator</a>
+                    <a href="loan-calculator.html" class="tool-link">Loan Calculator</a>
+                    <a href="auto-loan.html" class="tool-link">Auto Loan Calculator</a>
+                    <a href="interest-calculator.html" class="tool-link">Interest Calculator</a>
+                    <a href="compound-interest.html" class="tool-link">Compound Interest</a>
+                    <a href="investment-calculator.html" class="tool-link">Investment Calculator</a>
+                    <a href="retirement-calculator.html" class="tool-link">Retirement Calculator</a>
+                    <a href="amortization.html" class="tool-link">Amortization Calculator</a>
+                    <a href="payment-calculator.html" class="tool-link">Payment Calculator</a>
+                    <a href="interest-rate.html" class="tool-link">Interest Rate Calculator</a>
+                    <a href="inflation.html" class="tool-link">Inflation Calculator</a>
+                    <a href="currency-converter.html" class="tool-link">Currency Calculator</a>
+                    <a href="salary-calculator.html" class="tool-link">Salary Calculator</a>
+                    <a href="income-tax.html" class="tool-link">Income Tax Calculator</a>
+                    <a href="sales-tax.html" class="tool-link">Sales Tax Calculator</a>
+                    <a href="credit-card-calculator.html" class="tool-link">Credit Card Calculator</a>
+                    <a href="credit-card-payoff.html" class="tool-link">Credit Card Payoff</a>
+                    <a href="debt-payoff.html" class="tool-link">Debt Payoff Calculator</a>
+                    <a href="debt-consolidation.html" class="tool-link">Debt Consolidation</a>
+                    <a href="student-loan.html" class="tool-link">Student Loan Calculator</a>
+                    <a href="personal-loan.html" class="tool-link">Personal Loan Calculator</a>
+                    <a href="business-loan.html" class="tool-link">Business Loan Calculator</a>
+                    <a href="budget-calculator.html" class="tool-link">Budget Calculator</a>
+                    <a href="commission.html" class="tool-link">Commission Calculator</a>
+                    <a href="discount-calculator.html" class="tool-link">Discount Calculator</a>
+                    <a href="margin-calculator.html" class="tool-link">Margin Calculator</a>
+                    <a href="roi-calculator.html" class="tool-link">ROI Calculator</a>
+                    <a href="present-value.html" class="tool-link">Present Value Calculator</a>
+                    <a href="future-value.html" class="tool-link">Future Value Calculator</a>
+                    <a href="savings-calculator.html" class="tool-link">Savings Calculator</a>
+                    <a href="simple-interest.html" class="tool-link">Simple Interest Calculator</a>
+                    <a href="bond-calculator.html" class="tool-link">Bond Calculator</a>
+                    <a href="cd-calculator.html" class="tool-link">CD Calculator</a>
+                    <a href="mutual-fund.html" class="tool-link">Mutual Fund Calculator</a>
+                    <a href="irr-calculator.html" class="tool-link">IRR Calculator</a>
+                    <a href="annuity-calculator.html" class="tool-link">Annuity Calculator</a>
+                    <a href="pension.html" class="tool-link">Pension Calculator</a>
+                    <a href="401k-calculator.html" class="tool-link">401K Calculator</a>
+                    <a href="ira-calculator.html" class="tool-link">IRA Calculator</a>
+                    <a href="roth-ira.html" class="tool-link">Roth IRA Calculator</a>
+                    <a href="social-security.html" class="tool-link">Social Security Calculator</a>
+                    <a href="rent-calculator.html" class="tool-link">Rent Calculator</a>
+                    <a href="rent-vs-buy.html" class="tool-link">Rent vs Buy Calculator</a>
+                    <a href="refinance-calculator.html" class="tool-link">Refinance Calculator</a>
+                    <a href="down-payment.html" class="tool-link">Down Payment Calculator</a>
+                    <a href="home-affordability.html" class="tool-link">Home Affordability</a>
+                    <a href="home-equity.html" class="tool-link">Home Equity Calculator</a>
+                    <a href="heloc.html" class="tool-link">HELOC Calculator</a>
+                    <a href="apr-calculator.html" class="tool-link">APR Calculator</a>
+                    <a href="lease-calculator.html" class="tool-link">Lease Calculator</a>
+                </div>
+            </section>
+
+            <!-- 2. HEALTH & FITNESS -->
+            <section class="cat-box" id="health">
+                <h3 class="cat-head"><i class="fas fa-heartbeat mr-3"></i> Health & Fitness Calculators</h3>
+                <div class="card-grid">
+                    <a href="bmi-calculator.html" class="tool-link">BMI Calculator</a>
+                    <a href="calorie-calculator.html" class="tool-link">Calorie Calculator</a>
+                    <a href="body-fat.html" class="tool-link">Body Fat Calculator</a>
+                    <a href="bmr-calculator.html" class="tool-link">BMR Calculator</a>
+                    <a href="tdee-calculator.html" class="tool-link">TDEE Calculator</a>
+                    <a href="ideal-weight.html" class="tool-link">Ideal Weight Calculator</a>
+                    <a href="healthy-weight.html" class="tool-link">Healthy Weight Calculator</a>
+                    <a href="pregnancy-calculator.html" class="tool-link">Pregnancy Calculator</a>
+                    <a href="due-date.html" class="tool-link">Due Date Calculator</a>
+                    <a href="ovulation.html" class="tool-link">Ovulation Calculator</a>
+                    <a href="conception.html" class="tool-link">Conception Calculator</a>
+                    <a href="macro-calculator.html" class="tool-link">Macro Calculator</a>
+                    <a href="protein-calculator.html" class="tool-link">Protein Calculator</a>
+                    <a href="water-intake.html" class="tool-link">Water Intake Calculator</a>
+                    <a href="army-body-fat.html" class="tool-link">Army Body Fat Calculator</a>
+                    <a href="lean-body-mass.html" class="tool-link">Lean Body Mass Calculator</a>
+                    <a href="bac-calculator.html" class="tool-link">BAC Calculator</a>
+                    <a href="one-rep-max.html" class="tool-link">One Rep Max Calculator</a>
+                    <a href="pace-calculator.html" class="tool-link">Pace Calculator</a>
+                    <a href="heart-rate.html" class="tool-link">Heart Rate Calculator</a>
+                    <a href="calories-burned.html" class="tool-link">Calories Burned Calculator</a>
+                    <a href="waist-to-hip.html" class="tool-link">Waist-to-Hip Ratio</a>
+                    <a href="body-surface-area.html" class="tool-link">Body Surface Area</a>
+                    <a href="child-height-predictor.html" class="tool-link">Child Height Predictor</a>
+                    <a href="weight-loss.html" class="tool-link">Weight Loss Calculator</a>
+                </div>
+            </section>
+
+            <!-- 3. MATH CALCULATORS -->
+            <section class="cat-box" id="math">
+                <h2 class="cat-head"><i class="fas fa-square-root-variable mr-3"></i> Math & Statistics</h2>
+                <div class="card-grid">
+                    <a href="scientific-calculator.html" class="tool-link">Scientific Calculator</a>
+                    <a href="fraction-calculator.html" class="tool-link">Fraction Calculator</a>
+                    <a href="percentage-calculator.html" class="tool-link">Percentage Calculator</a>
+                    <a href="percent-error.html" class="tool-link">Percent Error Calculator</a>
+                    <a href="exponent-calculator.html" class="tool-link">Exponent Calculator</a>
+                    <a href="log-calculator.html" class="tool-link">Log Calculator</a>
+                    <a href="root-calculator.html" class="tool-link">Root Calculator</a>
+                    <a href="ratio-calculator.html" class="tool-link">Ratio Calculator</a>
+                    <a href="proportion.html" class="tool-link">Proportion Calculator</a>
+                    <a href="gcf-calculator.html" class="tool-link">GCF Calculator</a>
+                    <a href="lcm-calculator.html" class="tool-link">LCM Calculator</a>
+                    <a href="factor-calculator.html" class="tool-link">Factor Calculator</a>
+                    <a href="prime-factorization.html" class="tool-link">Prime Factorization</a>
+                    <a href="matrix-calculator.html" class="tool-link">Matrix Calculator</a>
+                    <a href="determinant.html" class="tool-link">Determinant Calculator</a>
+                    <a href="quadratic-formula.html" class="tool-link">Quadratic Formula</a>
+                    <a href="equation-solver.html" class="tool-link">Equation Solver</a>
+                    <a href="polynomial.html" class="tool-link">Polynomial Calculator</a>
+                    <a href="complex-number.html" class="tool-link">Complex Number</a>
+                    <a href="scientific-notation.html" class="tool-link">Scientific Notation</a>
+                    <a href="significant-figures.html" class="tool-link">Significant Figures</a>
+                    <a href="rounding-calculator.html" class="tool-link">Rounding Calculator</a>
+                    <a href="big-number.html" class="tool-link">Big Number Calculator</a>
+                    <a href="random-number.html" class="tool-link">Random Number Generator</a>
+                    <a href="sequence.html" class="tool-link">Sequence Calculator</a>
+                    <a href="arithmetic-sequence.html" class="tool-link">Arithmetic Sequence</a>
+                    <a href="geometric-sequence.html" class="tool-link">Geometric Sequence</a>
+                    <a href="mean.html" class="tool-link">Mean Calculator</a>
+                    <a href="median.html" class="tool-link">Median Calculator</a>
+                    <a href="mode.html" class="tool-link">Mode Calculator</a>
+                    <a href="std-deviation.html" class="tool-link">Standard Deviation</a>
+                    <a href="statistics.html" class="tool-link">Statistics Calculator</a>
+                    <a href="probability.html" class="tool-link">Probability Calculator</a>
+                    <a href="z-score.html" class="tool-link">Z-Score Calculator</a>
+                    <a href="confidence-interval.html" class="tool-link">Confidence Interval</a>
+                </div>
+            </section>
+
+            <!-- 4. GEOMETRY CALCULATORS -->
+            <section class="cat-box" id="geometry">
+                <h3 class="cat-head"><i class="fas fa-shapes mr-3"></i> Geometry Calculators</h3>
+                <div class="card-grid">
+                    <a href="triangle-calculator.html" class="tool-link">Triangle Calculator</a>
+                    <a href="right-triangle.html" class="tool-link">Right Triangle</a>
+                    <a href="circle-calculator.html" class="tool-link">Circle Calculator</a>
+                    <a href="area-calculator.html" class="tool-link">Area Calculator</a>
+                    <a href="volume-calculator.html" class="tool-link">Volume Calculator</a>
+                    <a href="surface-area.html" class="tool-link">Surface Area Calculator</a>
+                    <a href="distance-calculator.html" class="tool-link">Distance Calculator</a>
+                    <a href="slope-calculator.html" class="tool-link">Slope Calculator</a>
+                    <a href="pythagorean.html" class="tool-link">Pythagorean Theorem</a>
+                    <a href="rectangle.html" class="tool-link">Rectangle Calculator</a>
+                    <a href="square.html" class="tool-link">Square Calculator</a>
+                    <a href="parallelogram.html" class="tool-link">Parallelogram Calculator</a>
+                    <a href="trapezoid.html" class="tool-link">Trapezoid Calculator</a>
+                    <a href="ellipse.html" class="tool-link">Ellipse Calculator</a>
+                    <a href="pentagon.html" class="tool-link">Pentagon Calculator</a>
+                    <a href="hexagon.html" class="tool-link">Hexagon Calculator</a>
+                    <a href="octagon.html" class="tool-link">Octagon Calculator</a>
+                    <a href="sphere.html" class="tool-link">Sphere Calculator</a>
+                    <a href="cylinder.html" class="tool-link">Cylinder Calculator</a>
+                    <a href="cone.html" class="tool-link">Cone Calculator</a>
+                    <a href="pyramid.html" class="tool-link">Pyramid Calculator</a>
+                    <a href="cube.html" class="tool-link">Cube Calculator</a>
+                    <a href="prism.html" class="tool-link">Prism Calculator</a>
+                    <a href="coordinate-geometry.html" class="tool-link">Coordinate Geometry</a>
+                    <a href="angle-calculator.html" class="tool-link">Angle Calculator</a>
+                </div>
+            </section>
+
+            <!-- 5. DATE, TIME & EDUCATION -->
+            <section class="cat-box">
+                <h3 class="cat-head"><i class="fas fa-clock mr-3"></i> Date, Time & Education</h3>
+                <div class="card-grid">
+                    <a href="age-calculator.html" class="tool-link">Age Calculator</a>
+                    <a href="date-calculator.html" class="tool-link">Date Calculator</a>
+                    <a href="time-calculator.html" class="tool-link">Time Calculator</a>
+                    <a href="duration.html" class="tool-link">Time Duration Calculator</a>
+                    <a href="hours.html" class="tool-link">Hours Calculator</a>
+                    <a href="days-between.html" class="tool-link">Days Between Dates</a>
+                    <a href="week.html" class="tool-link">Week Calculator</a>
+                    <a href="business-days.html" class="tool-link">Business Days</a>
+                    <a href="time-zone.html" class="tool-link">Time Zone Calculator</a>
+                    <a href="countdown.html" class="tool-link">Countdown Calculator</a>
+                    <a href="gpa-calculator.html" class="tool-link">GPA Calculator</a>
+                    <a href="grade-calculator.html" class="tool-link">Grade Calculator</a>
+                    <a href="final-grade.html" class="tool-link">Final Grade Calculator</a>
+                    <a href="average-calculator.html" class="tool-link">Average Calculator</a>
+                    <a href="college-cost.html" class="tool-link">College Cost Calculator</a>
+                    <a href="study-time.html" class="tool-link">Study Time Calculator</a>
+                    <a href="exam-score.html" class="tool-link">Exam Score Calculator</a>
+                </div>
+            </section>
+
+            <!-- 6. CONSTRUCTION & HOME -->
+            <section class="cat-box">
+                <h3 class="cat-head"><i class="fas fa-hammer mr-3"></i> Construction & Home</h3>
+                <div class="card-grid">
+                    <a href="concrete.html" class="tool-link">Concrete Calculator</a>
+                    <a href="tile.html" class="tool-link">Tile Calculator</a>
+                    <a href="gravel.html" class="tool-link">Gravel Calculator</a>
+                    <a href="mulch.html" class="tool-link">Mulch Calculator</a>
+                    <a href="paint.html" class="tool-link">Paint Calculator</a>
+                    <a href="roofing.html" class="tool-link">Roofing Calculator</a>
+                    <a href="flooring.html" class="tool-link">Flooring Calculator</a>
+                    <a href="sq-footage.html" class="tool-link">Square Footage Calculator</a>
+                    <a href="brick.html" class="tool-link">Brick Calculator</a>
+                    <a href="asphalt.html" class="tool-link">Asphalt Calculator</a>
+                    <a href="stair.html" class="tool-link">Stair Calculator</a>
+                    <a href="fence.html" class="tool-link">Fence Calculator</a>
+                    <a href="deck.html" class="tool-link">Deck Calculator</a>
+                </div>
+            </section>
+
+            <!-- 7. CONVERSION CALCULATORS -->
+            <section class="cat-box" id="converters">
+                <h3 class="cat-head"><i class="fas fa-exchange-alt mr-3"></i> Universal Converters</h3>
+                <div class="card-grid">
+                    <a href="length-converter.html" class="tool-link">Length Converter</a>
+                    <a href="weight-converter.html" class="tool-link">Weight Converter</a>
+                    <a href="temperature.html" class="tool-link">Temperature Converter</a>
+                    <a href="area-converter.html" class="tool-link">Area Converter</a>
+                    <a href="volume-converter.html" class="tool-link">Volume Converter</a>
+                    <a href="speed-converter.html" class="tool-link">Speed Converter</a>
+                    <a href="pressure-converter.html" class="tool-link">Pressure Converter</a>
+                    <a href="energy-converter.html" class="tool-link">Energy Converter</a>
+                    <a href="power-converter.html" class="tool-link">Power Converter</a>
+                    <a href="fuel-economy.html" class="tool-link">Fuel Consumption</a>
+                    <a href="time-converter.html" class="tool-link">Time Converter</a>
+                    <a href="angle-converter.html" class="tool-link">Angle Converter</a>
+                    <a href="data-storage.html" class="tool-link">Data Storage Converter</a>
+                    <a href="cooking.html" class="tool-link">Cooking Converter</a>
+                    <a href="density.html" class="tool-link">Density Converter</a>
+                </div>
+            </section>
+
+            <!-- 8. COMPUTER & BUSINESS -->
+            <section class="cat-box">
+                <h3 class="cat-head"><i class="fas fa-laptop-code mr-3"></i> Computer & Business Tools</h3>
+                <div class="card-grid">
+                    <a href="binary.html" class="tool-link">Binary Calculator</a>
+                    <a href="hex.html" class="tool-link">Hex Calculator</a>
+                    <a href="subnet.html" class="tool-link">IP Subnet Calculator</a>
+                    <a href="bandwidth.html" class="tool-link">Bandwidth Calculator</a>
+                    <a href="download-time.html" class="tool-link">Download Time</a>
+                    <a href="password-gen.html" class="tool-link">Password Generator</a>
+                    <a href="raid.html" class="tool-link">RAID Calculator</a>
+                    <a href="storage.html" class="tool-link">Storage Calculator</a>
+                    <a href="profit.html" class="tool-link">Profit Calculator</a>
+                    <a href="break-even.html" class="tool-link">Break-Even Calculator</a>
+                    <a href="markup.html" class="tool-link">Markup Calculator</a>
+                    <a href="margin.html" class="tool-link">Margin Calculator</a>
+                    <a href="inventory.html" class="tool-link">Inventory Calculator</a>
+                    <a href="cash-flow.html" class="tool-link">Cash Flow Calculator</a>
+                    <a href="depreciation.html" class="tool-link">Depreciation Calculator</a>
+                    <a href="vat.html" class="tool-link">VAT Calculator</a>
+                    <a href="payroll.html" class="tool-link">Payroll Calculator</a>
+                    <a href="productivity.html" class="tool-link">Productivity Calculator</a>
+                </div>
+            </section>
+
+            <!-- 9. VEHICLE & MISCELLANEOUS -->
+            <section class="cat-box">
+                <h3 class="cat-head"><i class="fas fa-dice mr-3"></i> Vehicle & Miscellaneous</h3>
+                <div class="card-grid">
+                    <a href="fuel-cost.html" class="tool-link">Fuel Cost Calculator</a>
+                    <a href="mpg.html" class="tool-link">MPG Calculator</a>
+                    <a href="car-affordability.html" class="tool-link">Car Affordability</a>
+                    <a href="car-lease.html" class="tool-link">Car Lease Calculator</a>
+                    <a href="ev-charging.html" class="tool-link">EV Charging Calculator</a>
+                    <a href="tip-calculator.html" class="tool-link">Tip Calculator</a>
+                    <a href="love-calculator.html" class="tool-link">Love Calculator</a>
+                    <a href="dice-roller.html" class="tool-link">Dice Roller</a>
+                    <a href="team-gen.html" class="tool-link">Random Team Generator</a>
+                    <a href="unit-price.html" class="tool-link">Unit Price Calculator</a>
+                    <a href="perc-increase.html" class="tool-link">Percentage Increase</a>
+                    <a href="perc-decrease.html" class="tool-link">Percentage Decrease</a>
+                    <a href="split-bill.html" class="tool-link">Splitting Bills</a>
+                    <a href="sleep-calculator.html" class="tool-link">Sleep Calculator</a>
+                    <a href="birthday.html" class="tool-link">Birthday Calculator</a>
+                    <a href="life-expectancy.html" class="tool-link">Life Expectancy</a>
+                    <a href="savings-goal.html" class="tool-link">Savings Goal Calculator</a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Professional Footer -->
+        <footer class="bg-gray-100 p-10 border-t text-center">
+            
+            <!-- ADSTERRA NATIVE BANNER SECTION -->
+            <div class="max-w-4xl mx-auto mb-10">
+                <p class="text-xs text-gray-400 mb-2 uppercase font-bold tracking-widest">Helpful Recommendations</p>
+                <div id="adsterra-native-banner" class="bg-white p-4 border rounded shadow-sm min-h-[250px] flex items-center justify-center">
+                    <!-- PASTE ADSTERRA SCRIPT HERE -->
+                    <span class="text-gray-300">Native Ad Placement</span>
+                </div>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="flex justify-center flex-wrap gap-8 mb-8 text-sm font-bold text-gray-600 uppercase">
+                    <a href="home.html" class="hover:text-blue-700">Home</a>
+                    <a href="about.html" class="hover:text-blue-700">About Us</a>
+                    <a href="privacy.html" class="hover:text-blue-700">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-blue-700">Terms of Use</a>
+                    <a href="contact.html.
+                    " class="hover:text-blue-700">Contact</a>
+                </div>
+                <p class="text-xs text-gray-500 italic mb-6 leading-relaxed">
+                    <strong>DailyCalculator:</strong> The world's most comprehensive utility platform featuring 210+ verified online calculators. Designed for high precision in finance, math, health, and construction.
+                </p>
+                <div class="text-slate-800 font-black text-2xl tracking-tighter mb-4">DailyCalculator</div>
+                <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-t pt-8">
+                    &copy; 2024 DailyCalculator - Precision Guaranteed.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Search & Filter Logic -->
+    <script>
+        function filterTools() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const sections = document.querySelectorAll('.cat-box');
+            
+            sections.forEach(section => {
+                const links = section.querySelectorAll('.tool-link');
+                let matchInCat = false;
+
+                links.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    if (text.includes(input)) {
+                        link.style.display = "block";
+                        matchInCat = true;
+                    } else {
+                        link.style.display = "none";
+                    }
+                });
+
+                if (matchInCat) {
+                    section.classList.remove('hidden-cat');
+                } else {
+                    section.classList.add('hidden-cat');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
