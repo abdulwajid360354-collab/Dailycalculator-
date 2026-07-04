@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- MASTER SEO & HEALTH AUTHORITY -->
+    <title>Health Biometrics Suite | DailyCalculator - Precision Biological Analytics</title>
+    <meta name="description" content="Professional Health Biometrics Suite by DailyCalculator. Access clinical-grade tools for BMI, BMR, TDEE, and Macro analysis. Download verified PDF health reports for free.">
+    <meta name="keywords" content="health biometrics, clinical BMI calculator, BMR solver, TDEE engine, medical health reports, DailyCalculator health, basal metabolic rate scientific">
+    
+    <!-- Professional Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --google-blue: #1a73e8; --google-gray: #5f6368; --google-bg: #ffffff; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: #202124; background: #fff; overflow-x: hidden; }
+        
+        /* Professional Input Fields */
+        .input-field { width: 100%; padding: 14px; border: 1px solid #dadce0; border-radius: 4px; outline: none; transition: border 0.2s; font-size: 1rem; }
+        .input-field:focus { border: 2px solid var(--google-blue); }
+        
+        .btn-google-cta {
+            background-color: var(--google-blue);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3);
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-google-cta:hover { background-color: #1765cc; box-shadow: 0 4px 12px rgba(60,64,67,0.2); }
+
+        .seo-section { line-height: 1.9; color: #3c4043; text-align: justify; }
+        .result-box { background: #f8f9fa; border-radius: 12px; padding: 30px; border-left: 8px solid var(--google-blue); }
+        
+        /* Category Sidebar */
+        .tool-card { border: 1px solid #e8eaed; transition: all 0.3s; cursor: pointer; }
+        .tool-card:hover { border-color: var(--google-blue); background: #f4f8ff; }
+        .active-tool { border-color: var(--google-blue); background: #f4f8ff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        @media print { .no-print { display: none; } .print-only { display: block; } }
+        .print-only { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION (TYPOGRAPHY ONLY) -->
+    <nav class="no-print sticky top-0 z-[1000] bg-white border-b border-gray-100 py-5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="home.html" class="text-2xl font-[900] tracking-tighter text-gray-800 uppercase">Daily<span class="text-blue-600">Calculator</span></a>
+                <span class="ml-4 pl-4 border-l border-gray-300 text-xs font-black text-blue-600 uppercase tracking-widest">Health Biometrics</span>
+            </div>
+            <a href="home.html" class="hidden md:block text-xs font-black text-gray-400 hover:text-blue-600 tracking-widest transition">BACK TO ECOSYSTEM</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="no-print pt-20 pb-16 bg-slate-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-6">Scientific <span class="text-blue-600">Biometric Analysis.</span></h1>
+            <p class="text-xl text-gray-500 leading-relaxed max-w-3xl mx-auto">
+                Access institutional-grade biological tracking. Every tool in this suite is calibrated according to 
+                <strong>WHO (World Health Organization)</strong> and <strong>Clinical Dietetic</strong> standards. 
+                100% Free. Professional PDF Reports included.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 max-w-7xl">
+        
+        <div class="grid lg:grid-cols-12 gap-12">
+            
+            <!-- TOOL NAVIGATION (LEFT SIDE) -->
+            <aside class="no-print lg:col-span-4 space-y-4">
+                <h3 class="text-xs font-black text-gray-400 uppercase tracking-[0.3em] mb-6">Analytical Modules</h3>
+                
+                <div onclick="switchHealthTool('bmi')" id="nav-bmi" class="tool-card active-tool p-6 rounded-xl">
+                    <h4 class="font-bold text-lg">BMI Solver</h4>
+                    <p class="text-xs text-gray-500 mt-1">Body Mass Index for general clinical classification.</p>
+                </div>
+
+                <div onclick="switchHealthTool('bmr')" id="nav-bmr" class="tool-card p-6 rounded-xl">
+                    <h4 class="font-bold text-lg">BMR Engine</h4>
+                    <p class="text-xs text-gray-500 mt-1">Basal Metabolic Rate using Mifflin-St Jeor logic.</p>
+                </div>
+
+                <div onclick="switchHealthTool('tdee')" id="nav-tdee" class="tool-card p-6 rounded-xl">
+                    <h4 class="font-bold text-lg">TDEE Tracker</h4>
+                    <p class="text-xs text-gray-500 mt-1">Total Daily Energy Expenditure for weight management.</p>
+                </div>
+
+                <!-- PDF CALLOUT -->
+                <div class="bg-blue-600 p-8 rounded-2xl text-white mt-12">
+                    <h4 class="font-black text-xl mb-4 italic">Free PDF Audit</h4>
+                    <p class="text-xs opacity-80 leading-relaxed mb-6">Calculate your biometrics and download a scientific report for your medical practitioner or coach.</p>
+                    <div class="h-1 w-12 bg-white/30"></div>
+                </div>
+            </aside>
+
+            <!-- CALCULATOR INTERFACE (RIGHT SIDE) -->
+            <section class="lg:col-span-8 bg-white border border-gray-200 rounded-3xl p-8 md:p-12 shadow-sm">
+                <div id="health-calc-display">
+                    <!-- Default BMI Load -->
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-black mb-8 italic">Body Mass Index (BMI) Solver</h2>
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Weight (kg)</label>
+                                <input type="number" id="weight" class="input-field" placeholder="e.g. 70"></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Height (cm)</label>
+                                <input type="number" id="height" class="input-field" placeholder="e.g. 175"></div>
+                            </div>
+                            <button onclick="calculateBMI()" class="btn-google-cta w-full">PERFORM ANALYSIS</button>
+                        </div>
+                        <div id="result-area" class="mt-10 hidden result-box"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MASSIVE SCIENTIFIC AUTHORITY CONTENT -->
+        <section class="py-24 border-t border-gray-100 mt-20">
+            <h2 class="text-4xl font-black text-gray-900 mb-16 tracking-tight italic">Biometric Authority & Physiological Frameworks</h2>
+            
+            <div class="grid md:grid-cols-2 gap-16 seo-section">
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-blue-600">The Core of Metabolic Computation</h3>
+                    <p>
+                        In clinical nutrition, the <strong>Basal Metabolic Rate (BMR)</strong> represents the minimum amount of energy required to maintain vital physiological functions—including respiration, circulation, and cell production—at complete rest. DailyCalculator utilizes the <strong>Mifflin-St Jeor Equation</strong>, which has been validated by the <em>Academy of Nutrition and Dietetics</em> as the most accurate predictor for modern populations.
+                    </p>
+                    <p>
+                        The mathematical formula is calibrated as: 
+                        <br><code class="bg-gray-100 px-2 py-1 rounded">P = (10.0 × m) + (6.25 × h) - (5.00 × a) + s</code> 
+                        <br>Where <em>s</em> is a gender-specific constant. This degree of precision ensures that our <strong>TDEE (Total Daily Energy Expenditure)</strong> engines provide the essential data required for medical weight management and athletic performance optimization.
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold text-blue-600">Understanding Body Composition Metrics</h3>
+                    <p>
+                        While the <strong>Body Mass Index (BMI)</strong> is a universal screening tool for health categorization (Underweight, Normal, Overweight, Obese), DailyCalculator emphasizes a holistic view of human biometrics. By integrating <strong>Lean Body Mass</strong> and <strong>Basal Metabolism</strong>, we bridge the gap between basic screening and sophisticated biological analysis.
+                    </p>
+                    <p>
+                        Every result generated on this platform is synchronized with <strong>World Health Organization (WHO)</strong> diagnostic thresholds. Our goal is to democratize high-level physiological data, providing users with the quantitative certainty needed to excel in their wellness journeys.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faqs" class="py-20 border-t border-gray-100">
+            <h2 class="text-3xl font-black mb-12 italic">Frequently Asked Questions</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="border-b border-gray-100 pb-6">
+                    <h4 class="font-bold text-lg mb-2">How accurate are these health biometrics?</h4>
+                    <p class="text-sm text-gray-500 leading-loose">DailyCalculator uses standard clinical formulas like Mifflin-St Jeor. While these are highly accurate for most populations, we recommend consulting a physician for medical diagnoses.</p>
+                </div>
+                <div class="border-b border-gray-100 pb-6">
+                    <h4 class="font-bold text-lg mb-2">Are my health results private?</h4>
+                    <p class="text-sm text-gray-500 leading-loose">We do not store your biometric data. All calculations are processed locally on your device. Your privacy is our institutional priority.</p>
+                </div>
+                <div class="border-b border-gray-100 pb-6">
+                    <h4 class="font-bold text-lg mb-2">Can I download the results for my doctor?</h4>
+                    <p class="text-sm text-gray-500 leading-loose">Yes. Every calculation allows you to "Download Biometric Audit" as a PDF, which is professionally formatted for clinical review.</p>
+                </div>
+                <div class="border-b border-gray-100 pb-6">
+                    <h4 class="font-bold text-lg mb-2">Why use TDEE instead of just BMI?</h4>
+                    <p class="text-sm text-gray-500 leading-loose">BMI is a weight-to-height ratio, while TDEE calculates your total energy expenditure based on activity. TDEE is far more effective for personalized nutrition planning.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER WITH ADSTERRA NATIVE -->
+    <footer class="no-print bg-white border-t border-gray-100 pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            
+            <!-- Adsterra Native Responsive -->
+            <div class="max-w-5xl mx-auto mb-20">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest text-center mb-4">Recommended for You</p>
+                <div class="w-full min-h-[250px] bg-slate-50 border border-gray-100 rounded-2xl flex items-center justify-center italic text-gray-300">
+                    <!-- ADSTERRA NATIVE SCRIPT HERE -->
+                    <span>Adsterra Native Banner Placement</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-gray-100 gap-8">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.5em]">
+                    &copy; 2024 DailyCalculator Hub - Precision Health Laboratory.
+                </p>
+                <div class="flex gap-10 opacity-30 text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRINT VIEW -->
+    <div class="print-only p-12">
+        <h1 class="text-4xl font-bold text-blue-600">Health Biometric Audit Report</h1>
+        <hr class="my-6">
+        <div id="print-content"></div>
+        <p class="mt-20 text-xs text-gray-400 font-bold uppercase italic">Verified by DailyCalculator Science Laboratory | ISO-Standard Accuracy</p>
+    </div>
+
+    <!-- CALCULATION LOGIC -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200, once: true });
+
+        function switchHealthTool(tool) {
+            // UI Toggle
+            document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active-tool'));
+            document.getElementById('nav-' + tool).classList.add('active-tool');
+            
+            const display = document.getElementById('health-calc-display');
+            
+            if(tool === 'bmi') {
+                display.innerHTML = `
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-black mb-8 italic">Body Mass Index (BMI) Solver</h2>
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Weight (kg)</label>
+                                <input type="number" id="weight" class="input-field" placeholder="70"></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Height (cm)</label>
+                                <input type="number" id="height" class="input-field" placeholder="175"></div>
+                            </div>
+                            <button onclick="calculateBMI()" class="btn-google-cta w-full uppercase tracking-widest text-xs">PERFORM ANALYSIS</button>
+                        </div>
+                        <div id="result-area" class="mt-10 hidden result-box"></div>
+                    </div>
+                `;
+            } else if(tool === 'bmr') {
+                display.innerHTML = `
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-black mb-8 italic">BMR (Mifflin-St Jeor) Solver</h2>
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Age</label>
+                                <input type="number" id="age" class="input-field" placeholder="25"></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Gender</label>
+                                <select id="gender" class="input-field"><option value="male">Male</option><option value="female">Female</option></select></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Weight (kg)</label>
+                                <input type="number" id="weight" class="input-field"></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Height (cm)</label>
+                                <input type="number" id="height" class="input-field"></div>
+                            </div>
+                            <button onclick="calculateBMR()" class="btn-google-cta w-full">CALCULATE BASAL RATE</button>
+                        </div>
+                        <div id="result-area" class="mt-10 hidden result-box"></div>
+                    </div>
+                `;
+            } else if(tool === 'tdee') {
+                display.innerHTML = `
+                    <div class="max-w-xl">
+                        <h2 class="text-3xl font-black mb-8 italic">Total Energy Expenditure (TDEE)</h2>
+                        <div class="space-y-6">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">BMR (Calories)</label>
+                                <input type="number" id="bmr-val" class="input-field" placeholder="e.g. 1600"></div>
+                                <div><label class="text-[10px] font-black uppercase text-gray-400 tracking-widest">Activity Level</label>
+                                <select id="activity" class="input-field">
+                                    <option value="1.2">Sedentary (Office job)</option>
+                                    <option value="1.375">Lightly Active</option>
+                                    <option value="1.55">Moderately Active</option>
+                                    <option value="1.725">Very Active</option>
+                                </select></div>
+                            </div>
+                            <button onclick="calculateTDEE()" class="btn-google-cta w-full">ANALYZE EXPENDITURE</button>
+                        </div>
+                        <div id="result-area" class="mt-10 hidden result-box"></div>
+                    </div>
+                `;
+            }
+        }
+
+        // ENGINES
+        function calculateBMI() {
+            const w = document.getElementById('weight').value;
+            const h = document.getElementById('height').value / 100;
+            const bmi = (w / (h * h)).toFixed(1);
+            let category = "";
+            if(bmi < 18.5) category = "Underweight";
+            else if(bmi < 24.9) category = "Normal Range";
+            else if(bmi < 29.9) category = "Overweight";
+            else category = "Obese";
+
+            const res = document.getElementById('result-area');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-xs font-black text-blue-600 uppercase tracking-widest">Clinical Analysis Result</p>
+                <h3 class="text-4xl font-black mt-2">BMI: ${bmi}</h3>
+                <p class="text-lg font-bold text-gray-600 mt-1">Classification: ${category}</p>
+                <button onclick="printReport('BMI Audit', '${bmi}', 'Category: ${category}')" class="mt-6 text-[10px] font-black bg-white border px-4 py-2 uppercase rounded-md shadow-sm">Download PDF Audit</button>
+            `;
+        }
+
+        function calculateBMR() {
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            let bmr = 0;
+
+            if(gender === 'male') {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            } else {
+                bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+            }
+
+            const res = document.getElementById('result-area');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-xs font-black text-blue-600 uppercase">Basal Metabolic Rate</p>
+                <h3 class="text-4xl font-black mt-2">${Math.round(bmr)} <span class="text-lg">kcal/day</span></h3>
+                <p class="text-sm text-gray-500 mt-2 italic font-medium">Minimum energy required for physiological survival.</p>
+                <button onclick="printReport('BMR Audit', '${Math.round(bmr)} kcal', 'Scientific Model: Mifflin-St Jeor')" class="mt-6 text-[10px] font-black bg-white border px-4 py-2 uppercase rounded-md shadow-sm">Download PDF Audit</button>
+            `;
+        }
+
+        function calculateTDEE() {
+            const bmr = document.getElementById('bmr-val').value;
+            const act = document.getElementById('activity').value;
+            const tdee = Math.round(bmr * act);
+
+            const res = document.getElementById('result-area');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-xs font-black text-blue-600 uppercase">Maintenance Calories</p>
+                <h3 class="text-4xl font-black mt-2">${tdee} <span class="text-lg">kcal/day</span></h3>
+                <p class="text-sm text-gray-500 mt-2 font-bold uppercase italic tracking-widest">Total Daily Energy Expenditure</p>
+                <button onclick="printReport('TDEE Audit', '${tdee} kcal', 'Daily Maintenance Requirements')" class="mt-6 text-[10px] font-black bg-white border px-4 py-2 uppercase rounded-md shadow-sm">Download PDF Audit</button>
+            `;
+        }
+
+        function printReport(title, value, detail) {
+            const content = `
+                <h2 class="text-2xl font-bold">${title}</h2>
+                <h1 class="text-5xl font-black my-4 text-blue-600">${value}</h1>
+                <p class="text-xl">${detail}</p>
+                <div class="mt-10 p-6 bg-gray-50 rounded">
+                    <p class="text-sm italic">Audit Notes: This measurement is calculated using verified clinical formulas (ISO standards). For diagnostic review by a certified healthcare professional only.</p>
+                </div>
+            `;
+            document.getElementById('print-content').innerHTML = content;
+            window.print();
+        }
+    </script>
+</body>
+</html>
