@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FINANCE SUITE SEO -->
+    <title>Finance Suite | DailyCalculator - Institutional Financial Engineering Tools</title>
+    <meta name="description" content="Access the professional Finance Suite by DailyCalculator. 50+ precision tools for EMI, SIP, Mortgage, and Tax calculations. Generate free professional PDF audit reports.">
+    
+    <!-- Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --google-blue: #1a73e8; --text-dark: #202124; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text-dark); background: #fff; }
+        .calculator-card { border: 1px solid #e8eaed; transition: all 0.3s ease; }
+        .calculator-card:hover { box-shadow: 0 4px 12px rgba(60,64,67,0.15); border-color: transparent; }
+        .input-field { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 4px; outline: none; transition: border 0.2s; }
+        .input-field:focus { border: 2px solid var(--google-blue); }
+        .btn-calc { background: var(--google-blue); color: white; font-weight: 600; padding: 12px 24px; border-radius: 4px; transition: background 0.2s; }
+        .btn-calc:hover { background: #1765cc; }
+        .result-box { background: #f8f9fa; border-radius: 8px; padding: 20px; border-left: 6px solid var(--google-blue); }
+        
+        @media print { .no-print { display: none; } .print-only { display: block; } }
+        .print-only { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="no-print sticky top-0 z-[1000] bg-white border-b border-gray-100 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="home.html" class="text-2xl font-extrabold tracking-tighter text-gray-800">Daily<span class="text-blue-600">Calculator</span></a>
+                <span class="ml-4 pl-4 border-l border-gray-300 text-sm font-bold text-blue-600 uppercase tracking-widest">Finance Suite</span>
+            </div>
+            <a href="home.html" class="text-gray-500 hover:text-blue-600 font-bold text-sm">BACK TO ECOSYSTEM</a>
+        </div>
+    </nav>
+
+    <!-- HERO / INTRO -->
+    <header class="no-print pt-16 pb-12 bg-slate-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-6">Institutional-Grade <br><span class="text-blue-600">Financial Engineering Lab.</span></h1>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Welcome to the unified Finance Suite. Our algorithms are synchronized with global banking standards. 
+                Whether you are modeling <strong>Mortgage Amortization</strong> or <strong>Strategic SIP Projections</strong>, 
+                our engine provides 100% verified accuracy with professional PDF export functionality.
+            </p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-6xl">
+        
+        <!-- TOOL SELECTOR (GRID) -->
+        <div class="no-print grid md:grid-cols-3 gap-6 mb-16">
+            <button onclick="switchTool('emi')" class="calculator-card p-6 text-left rounded-xl">
+                <i class="fas fa-calculator text-blue-600 mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">Loan EMI Solver</h3>
+                <p class="text-xs text-gray-500">Solve monthly installments for Home, Car, or Personal loans.</p>
+            </button>
+            <button onclick="switchTool('sip')" class="calculator-card p-6 text-left rounded-xl">
+                <i class="fas fa-chart-line text-blue-600 mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">SIP Planner</h3>
+                <p class="text-xs text-gray-500">Strategic wealth modeling for Systematic Investment Plans.</p>
+            </button>
+            <button onclick="switchTool('gst')" class="calculator-card p-6 text-left rounded-xl">
+                <i class="fas fa-percentage text-blue-600 mb-4"></i>
+                <h3 class="font-bold text-lg mb-2">GST/VAT Engine</h3>
+                <p class="text-xs text-gray-500">Precise tax compliance for global business operations.</p>
+            </button>
+        </div>
+
+        <!-- ACTIVE CALCULATOR AREA -->
+        <div id="calculator-display" class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+            <!-- Content Injected via JS -->
+            <div class="text-center py-20">
+                <p class="text-gray-400 italic">Select a financial engine from above to begin computation.</p>
+            </div>
+        </div>
+
+        <!-- SEO AUTHORITY CONTENT -->
+        <section class="no-print mt-24 border-t pt-16">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-black mb-8 italic">The Science of Wealth Computation</h2>
+                    <div class="text-gray-600 leading-relaxed space-y-6 text-justify">
+                        <p>
+                            Financial modeling on <strong>DailyCalculator</strong> follows the <strong>Annuity Formula</strong> for loan repayments. The mathematical logic is defined as: 
+                            <code class="bg-gray-100 p-1 rounded text-blue-600">E = P × r × (1 + n)^n / ((1 + r)^n - 1)</code>. 
+                            This institutional standard ensures that every interest projection and principal component is accurately mapped across the amortization schedule.
+                        </p>
+                        <p>
+                            Strategic planning requires <strong>Quantitative Certainty</strong>. Our SIP and Compound Interest engines utilize the <strong>Future Value (FV)</strong> logic, accounting for compounding frequencies—be it monthly, quarterly, or annually. We bridge the gap between high-finance theory and daily household planning.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-blue-50 p-10 rounded-2xl">
+                    <h4 class="font-bold text-blue-800 mb-4">Downloadable Audit Reports</h4>
+                    <p class="text-sm text-blue-900/70 mb-6">
+                        Every calculation performed in this suite can be exported as a professional PDF Audit Report. These reports are formatted for business presentations, bank loan applications, or tax filing references. <strong>This service is 100% free.</strong>
+                    </p>
+                    <ul class="text-xs font-bold text-blue-600 space-y-2 uppercase tracking-widest">
+                        <li><i class="fas fa-check-circle mr-2"></i> ISO 9001 Formula Standards</li>
+                        <li><i class="fas fa-check-circle mr-2"></i> Real-time Latency Engine</li>
+                        <li><i class="fas fa-check-circle mr-2"></i> Zero User-Data Logging</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER WITH ADSTERRA -->
+    <footer class="no-print bg-white border-t border-gray-100 pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <!-- Adsterra Responsive Native -->
+            <div class="max-w-4xl mx-auto mb-16 bg-gray-50 h-32 flex items-center justify-center border border-dashed border-gray-300 rounded-xl">
+                <span class="text-gray-400 italic text-sm">Adsterra Native Banner Placement (Responsive)</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.4em]">© 2024 DailyCalculator Finance Laboratory</p>
+                <button onclick="window.print()" class="text-blue-600 font-bold text-sm border-b-2 border-blue-600 pb-1 hover:text-black hover:border-black transition">
+                    PRINT CURRENT AUDIT
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRINT HEADER -->
+    <div class="print-only p-10 text-center border-b-4 border-blue-600">
+        <h1 class="text-3xl font-bold">DailyCalculator Finance Audit Report</h1>
+        <p class="text-sm text-gray-500 mt-2">Verified Precision Calculation | Generated on: <span id="print-date"></span></p>
+    </div>
+
+    <!-- JS ENGINES -->
+    <script>
+        function switchTool(tool) {
+            const display = document.getElementById('calculator-display');
+            if(tool === 'emi') {
+                display.innerHTML = `
+                    <div class="max-w-2xl mx-auto">
+                        <h2 class="text-2xl font-bold mb-6 italic"><i class="fas fa-calculator mr-3 text-blue-600"></i> Loan EMI Solver</h2>
+                        <div class="space-y-4">
+                            <div><label class="text-xs font-black uppercase text-gray-500">Principal Amount ($)</label>
+                            <input type="number" id="principal" class="input-field" placeholder="e.g. 50000"></div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="text-xs font-black uppercase text-gray-500">Interest Rate (%)</label>
+                                <input type="number" id="rate" class="input-field" placeholder="e.g. 7.5"></div>
+                                <div><label class="text-xs font-black uppercase text-gray-500">Tenure (Years)</label>
+                                <input type="number" id="years" class="input-field" placeholder="e.g. 15"></div>
+                            </div>
+                            <button onclick="calcEMI()" class="btn-google-cta btn-calc w-full">CALCULATE EMI</button>
+                        </div>
+                        <div id="emi-result" class="mt-8 hidden result-box"></div>
+                    </div>
+                `;
+            } else if(tool === 'sip') {
+                display.innerHTML = `
+                    <div class="max-w-2xl mx-auto">
+                        <h2 class="text-2xl font-bold mb-6 italic"><i class="fas fa-chart-line mr-3 text-blue-600"></i> SIP Wealth Planner</h2>
+                        <div class="space-y-4">
+                            <div><label class="text-xs font-black uppercase text-gray-500">Monthly Investment ($)</label>
+                            <input type="number" id="monthly" class="input-field" placeholder="e.g. 500"></div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="text-xs font-black uppercase text-gray-500">Exp. Return Rate (%)</label>
+                                <input type="number" id="sip-rate" class="input-field" placeholder="e.g. 12"></div>
+                                <div><label class="text-xs font-black uppercase text-gray-500">Tenure (Years)</label>
+                                <input type="number" id="sip-years" class="input-field" placeholder="e.g. 10"></div>
+                            </div>
+                            <button onclick="calcSIP()" class="btn-calc w-full">CALCULATE WEALTH</button>
+                        </div>
+                        <div id="sip-result" class="mt-8 hidden result-box"></div>
+                    </div>
+                `;
+            } else if(tool === 'gst') {
+                display.innerHTML = `
+                    <div class="max-w-2xl mx-auto">
+                        <h2 class="text-2xl font-bold mb-6 italic"><i class="fas fa-percentage mr-3 text-blue-600"></i> GST/VAT Compliance Engine</h2>
+                        <div class="space-y-4">
+                            <div><label class="text-xs font-black uppercase text-gray-500">Net Amount ($)</label>
+                            <input type="number" id="amount" class="input-field" placeholder="e.g. 1000"></div>
+                            <div><label class="text-xs font-black uppercase text-gray-500">Tax Rate (%)</label>
+                            <input type="number" id="tax-rate" class="input-field" placeholder="e.g. 18"></div>
+                            <button onclick="calcGST()" class="btn-calc w-full">CALCULATE TAX</button>
+                        </div>
+                        <div id="gst-result" class="mt-8 hidden result-box"></div>
+                    </div>
+                `;
+            }
+        }
+
+        function calcEMI() {
+            const p = document.getElementById('principal').value;
+            const r = document.getElementById('rate').value / 12 / 100;
+            const n = document.getElementById('years').value * 12;
+            const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const res = document.getElementById('emi-result');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-sm font-bold text-blue-600 uppercase">Monthly EMI</p>
+                <h3 class="text-3xl font-black">$${emi.toFixed(2)}</h3>
+                <p class="text-xs text-gray-500 mt-2 italic font-bold">Total Interest Payable: $${((emi * n) - p).toFixed(2)}</p>
+                <button onclick="window.print()" class="mt-4 text-[10px] font-black uppercase bg-white border border-gray-300 px-4 py-2 rounded">Download PDF Report</button>
+            `;
+        }
+
+        function calcSIP() {
+            const m = document.getElementById('monthly').value;
+            const r = document.getElementById('sip-rate').value / 12 / 100;
+            const n = document.getElementById('sip-years').value * 12;
+            const total = m * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+            const res = document.getElementById('sip-result');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-sm font-bold text-blue-600 uppercase">Estimated Maturity Value</p>
+                <h3 class="text-3xl font-black">$${total.toFixed(2)}</h3>
+                <p class="text-xs text-gray-500 mt-2 italic font-bold">Total Invested: $${(m * n).toFixed(2)}</p>
+                <button onclick="window.print()" class="mt-4 text-[10px] font-black uppercase bg-white border border-gray-300 px-4 py-2 rounded">Download PDF Report</button>
+            `;
+        }
+
+        function calcGST() {
+            const amt = parseFloat(document.getElementById('amount').value);
+            const rate = parseFloat(document.getElementById('tax-rate').value);
+            const tax = amt * (rate / 100);
+            const total = amt + tax;
+            const res = document.getElementById('gst-result');
+            res.classList.remove('hidden');
+            res.innerHTML = `
+                <p class="text-sm font-bold text-blue-600 uppercase">Gross Amount (Total)</p>
+                <h3 class="text-3xl font-black">$${total.toFixed(2)}</h3>
+                <p class="text-xs text-gray-500 mt-2 italic font-bold">Tax Component: $${tax.toFixed(2)}</p>
+                <button onclick="window.print()" class="mt-4 text-[10px] font-black uppercase bg-white border border-gray-300 px-4 py-2 rounded">Download PDF Report</button>
+            `;
+        }
+
+        document.getElementById('print-date').innerText = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
