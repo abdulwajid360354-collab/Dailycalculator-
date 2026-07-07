@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MASTER SEO DOMINATION & E-E-A-T AUDIT -->
+    <title>IP Subnet Calculator - Professional CIDR & IPv4 Network Solver | DailyCalculator</title>
+    <meta name="description" content="Calculate IP subnets, CIDR notation, and host ranges with our professional IP Subnet Calculator. Audit network boundaries and broadcast addresses with interactive 📈 bitwise charts. Free PDF reports.">
+    <meta name="keywords" content="IP subnet calculator, CIDR calculator, IPv4 subnetting, subnet mask solver, network address auditor, IP range estimator, broadcast address finder, DailyCalculator tech">
+    <link rel="canonical" href="https://www.dailycalculator.com/ip-subnet-calculator.html" />
+
+    <!-- JSON-LD SCHEMA (Institutional Trust) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Professional IP Subnet Engine",
+      "description": "High-precision institutional tool for auditing IPv4 subnets, CIDR blocks, and network topology configurations.",
+      "url": "https://www.dailycalculator.com/ip-subnet-calculator.html",
+      "provider": { "@type": "Organization", "name": "DailyCalculator Global Precision Lab" }
+    }
+    </script>
+
+    <!-- ULTRA HIGH-SPEED EDGE CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap');
+        
+        body { font-family: 'Roboto', arial, sans-serif; background-color: #f4f6f9; color: #333; scroll-behavior: smooth; }
+        .site-wrapper { max-width: 1160px; margin: 0 auto; background: white; border-left: 1px solid #ccc; border-right: 1px solid #ccc; min-height: 100vh; }
+        
+        /* Institutional Branding */
+        .blue-header { background-color: #00509d; color: white; padding: 20px 25px; }
+        .nav-gray { background-color: #e8e8e8; border-bottom: 1px solid #ccc; padding: 10px 25px; font-size: 14px; font-weight: bold; }
+        
+        /* ADSTERRA PLACEMENTS */
+        .header-ad-box { width: 100%; max-width: 728px; height: 90px; margin: 15px auto; background: #fafafa; border: 1px dashed #bbb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .footer-native-ad { width: 100%; min-height: 250px; background: #fdfdfd; border-radius: 8px; border: 1px solid #eee; margin: 3rem 0; padding: 20px; text-align: center; }
+
+        /* Calculation Hub Grid */
+        .calc-grid { display: grid; grid-template-columns: 400px 1fr; gap: 30px; padding: 25px; }
+        .input-panel { background: #f0f4f7; padding: 25px; border-radius: 4px; border: 1px solid #d1d9e0; height: fit-content; }
+        
+        .input-box { margin-bottom: 18px; }
+        .input-box label { display: block; font-size: 11px; font-weight: 900; margin-bottom: 4px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+        .std-input { width: 100%; padding: 12px; border: 1px solid #aaa; border-radius: 4px; font-size: 16px; outline: none; transition: 0.15s; background: white; font-weight: 700; font-family: 'Roboto Mono', monospace; }
+        .std-input:focus { border-color: #00509d; box-shadow: 0 0 8px rgba(0,80,157,0.15); }
+
+        .btn-calc { background: #d00; color: white; padding: 14px; border-radius: 4px; font-weight: 900; cursor: pointer; border: none; width: 100%; font-size: 17px; transition: 0.2s; text-transform: uppercase; margin-top: 10px; }
+        .btn-calc:hover { background: #b00; transform: translateY(-1px); }
+
+        /* Results UI */
+        .result-title { font-size: 22px; color: #00509d; border-bottom: 2px solid #00509d; margin-bottom: 20px; padding-bottom: 5px; font-weight: 900; text-transform: uppercase; }
+        .res-main { font-size: 3rem; font-weight: 900; color: #1e293b; letter-spacing: -1px; line-height: 1; word-break: break-all; background: #fff8e1; border: 2px solid #ffe082; padding: 20px; border-radius: 8px; margin-bottom: 20px; font-family: 'Roboto Mono', monospace; }
+        
+        /* Bit-Box Visualization */
+        .bit-container { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 15px; }
+        .bit-cell { width: 22px; height: 28px; display: flex; align-items: center; justify-content: center; background: #334155; color: white; font-weight: 900; border-radius: 3px; font-size: 11px; font-family: 'Roboto Mono', monospace; }
+        .bit-net { background: #00509d; } /* Network bits */
+        .bit-host { background: #16a34a; } /* Host bits */
+
+        /* SEO Authority Hub Styling */
+        .seo-authority-box { padding: 50px 30px; border-top: 1px solid #eee; background: #fff; }
+        .seo-authority-box h1 { color: #00509d; font-size: 32px; font-weight: 900; margin-bottom: 25px; }
+        .seo-authority-box h2 { color: #00509d; font-size: 24px; font-weight: 800; margin: 40px 0 20px; border-left: 6px solid #d00; padding-left: 20px; }
+        .seo-authority-box h3 { color: #333; font-size: 20px; font-weight: 700; margin-top: 30px; }
+        .seo-authority-box p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; text-align: justify; color: #444; }
+        .formula-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; border-radius: 12px; font-family: monospace; text-align: center; font-weight: bold; color: #00509d; margin: 30px 0; font-size: 1.5rem; border-bottom: 4px solid #00509d; }
+
+        @media (max-width: 1024px) { .calc-grid { grid-template-columns: 1fr; } .site-wrapper { border: none; } }
+        @media (max-width: 640px) { .header-ad-box { height: 60px; } .res-main { font-size: 1.5rem !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper shadow-2xl">
+        
+        <!-- Header Banner -->
+        <div class="header-ad-box">
+            <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest italic">728 x 90 Advertisement Placement</span>
+        </div>
+
+        <!-- Professional Typography Header -->
+        <header class="blue-header flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <a href="index.html" title="DailyCalculator Home" class="text-4xl font-black tracking-tighter italic uppercase">DailyCalculator</a>
+                <p class="text-blue-200 text-[10px] font-bold uppercase tracking-[0.2em] mt-1 italic">Institutional Network Architecture Laboratory</p>
+            </div>
+            <a href="index.html" class="bg-blue-800 border border-blue-400 px-10 py-3 rounded-md text-xs font-black hover:bg-blue-700 transition flex items-center shadow-lg">
+                <i class="fas fa-home mr-2"></i> HOME
+            </a>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-gray flex flex-wrap gap-5 text-gray-600 justify-center sm:justify-start">
+            <a href="binary-calculator.html" class="hover:text-blue-700">Binary Solver</a>
+            <span>|</span>
+            <a href="ip-subnet-calculator.html" class="text-blue-700 underline">IP Subnet Engine</a>
+            <span>|</span>
+            <a href="bandwidth-calculator.html" class="hover:text-blue-700">Bandwidth Hub</a>
+        </nav>
+
+        <!-- CALCULATOR SECTION STARTS IMMEDIATELY -->
+        <main>
+            <div class="calc-grid">
+                
+                <!-- INPUT PANEL -->
+                <div class="input-panel shadow-sm">
+                    <h1 class="text-sm font-black text-slate-500 uppercase mb-4 tracking-widest border-b pb-2">Network Topology Audit</h1>
+                    
+                    <div class="input-box">
+                        <label>IP Address (IPv4)</label>
+                        <input type="text" id="ipAddress" class="std-input" value="192.168.1.1" placeholder="e.g. 10.0.0.1">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Subnet Mask / CIDR</label>
+                        <select id="cidrSelect" class="std-input bg-white" onchange="calculate()">
+                            <option value="32">/32 (255.255.255.255) - 1 Host</option>
+                            <option value="31">/31 (255.255.255.254) - 2 Hosts</option>
+                            <option value="30">/30 (255.255.255.252) - 4 Hosts</option>
+                            <option value="29">/29 (255.255.255.248) - 8 Hosts</option>
+                            <option value="28">/28 (255.255.255.240) - 16 Hosts</option>
+                            <option value="27">/27 (255.255.255.224) - 32 Hosts</option>
+                            <option value="26">/26 (255.255.255.192) - 64 Hosts</option>
+                            <option value="25">/25 (255.255.255.128) - 128 Hosts</option>
+                            <option value="24" selected>/24 (255.255.255.0) - 256 Hosts</option>
+                            <option value="23">/23 (255.255.254.0) - 512 Hosts</option>
+                            <option value="22">/22 (255.252.0.0) - 1024 Hosts</option>
+                            <option value="16">/16 (255.255.0.0) - 65,536 Hosts</option>
+                            <option value="8">/8 (255.0.0.0) - 16.7M Hosts</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-calc" onclick="calculate()">Perform Network Audit</button>
+                    <p class="text-[10px] text-gray-400 font-bold text-center mt-4 uppercase italic">Verified Bitwise Logical Logic</p>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="bg-white">
+                    <h2 class="result-title">Quantitative Network Summary</h2>
+                    
+                    <div class="res-main text-blue-600" id="networkRes">192.168.1.0</div>
+                    <p class="text-[10px] font-black text-gray-400 uppercase mt-2 tracking-widest text-center">Calculated Network Address</p>
+                    
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                        <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl text-center">
+                            <span class="text-[10px] font-bold text-blue-500 uppercase block mb-1">Broadcast Address</span>
+                            <span class="text-xl font-black text-blue-800" id="broadcastRes">192.168.1.255</span>
+                        </div>
+                        <div class="p-4 bg-green-50 border border-green-100 rounded-xl text-center">
+                            <span class="text-[10px] font-bold text-green-600 uppercase block mb-1">Usable Host Range</span>
+                            <span class="text-sm font-black text-green-700" id="hostRangeRes">192.168.1.1 - 192.168.1.254</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl text-center">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">Total Hosts</span>
+                            <span class="text-xl font-black text-slate-800" id="totalHostsRes">256</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl text-center">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase block mb-1">Subnet Wildcard</span>
+                            <span class="text-xl font-black text-slate-800" id="wildcardRes">0.0.0.255</span>
+                        </div>
+                    </div>
+
+                    <!-- THE BIT-VISUALIZATION -->
+                    <div class="mb-10">
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Binary Bitmask Allocation (Blue=Net, Green=Host)</h3>
+                        <div id="bitMap" class="bit-container">
+                            <!-- JS Injected Bits -->
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3">
+                        <button class="bg-white border-2 border-blue-900 text-blue-900 px-6 py-2 rounded-lg font-black text-xs hover:bg-blue-900 hover:text-white transition shadow-sm" onclick="downloadPDF()">
+                            <i class="fas fa-file-pdf mr-2"></i> DOWNLOAD NETWORK AUDIT
+                        </button>
+                        <button class="bg-white border-2 border-slate-800 text-slate-800 px-6 py-2 rounded-lg font-black text-xs hover:bg-slate-800 hover:text-white transition shadow-sm" onclick="downloadCSV()">
+                            <i class="fas fa-file-csv mr-2"></i> EXPORT DATA
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDEX TABLE SECTION -->
+            <div class="px-6 pb-16 mt-10">
+                <h2 class="result-title">Institutional CIDR Parity Matrix</h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                    <table class="amort-table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>CIDR Block</th>
+                                <th>Subnet Mask</th>
+                                <th>Total Hosts</th>
+                                <th>Usable Hosts</th>
+                                <th>Classification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>/32</td><td>255.255.255.255</td><td>1</td><td>1</td><td>Host</td></tr>
+                            <tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td><td>Point-to-Point</td></tr>
+                            <tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td><td>Small Network</td></tr>
+                            <tr><td>/16</td><td>255.255.0.0</td><td>65,536</td><td>65,534</td><td>Enterprise</td></tr>
+                            <tr><td>/8</td><td>255.0.0.0</td><td>16,777,216</td><td>16,777,214</td><td>Global ISP</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ULTRA SUPERBOAST STRONG SEO CONTENT SECTION -->
+            <article class="seo-authority-box">
+                <section>
+                    <h1>Professional IP Subnet Calculator: Strategic Network Decision Science</h1>
+                    <p>
+                        In the architecture of modern digital infrastructure, <strong>IP Subnetting</strong> is the definitive framework governing packet routing efficiency and security isolation. DailyCalculator’s **IP Subnet Engine** is an institutional-grade instrument engineered to provide absolute quantitative certainty regarding network boundaries. Whether you are a systems architect auditing <strong>CIDR (Classless Inter-Domain Routing)</strong> blocks, a cybersecurity analyst isolating VLANs, or a student mastering <strong>Bitwise Logical AND Operations</strong>, our engine provides verified mathematical precision based on <strong>IEEE 802.3 and IPv4 Standards</strong>.
+                    </p>
+                    <p>
+                        By deconstructing the interaction between 32-bit address strings and their corresponding masks, we empower users to maintain <strong>Mathematical Sovereignty</strong> over their infrastructure. Understanding subnet dynamics is the foundational pillar of successful long-term traffic optimization, address depletion mitigation, and robust firewall design.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>2. The Mathematical Logic of Subnetting</h2>
+                    <p>Our laboratory utilizes the verified bitwise frameworks established by the IETF (Internet Engineering Task Force) to ensure 100% parity with international standards:</p>
+                    <div class="formula-box">
+                        Network Address = IP ADDRESS &amp; SUBNET MASK
+                    </div>
+                    <ul class="ml-6 space-y-2 text-sm italic list-disc">
+                        <li><strong>CIDR (Classless Inter-Domain Routing):</strong> A compact notation representing an IP and its network prefix length.</li>
+                        <li><strong>Octet:</strong> An 8-bit segment of an IPv4 address.</li>
+                        <li><strong>Broadcast Address:</strong> The address used to communicate with all hosts within a specific subnet.</li>
+                        <li><strong>Wildcard Mask:</strong> The inverse of the subnet mask, utilized primarily in Access Control Lists (ACLs).</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Strategic Steps to Perform a Professional Network Audit</h2>
+                    <ul class="list-decimal ml-10 space-y-4">
+                        <li><strong>Identify Your Base IP:</strong> Enter the starting IPv4 address. Accuracy is vital; a single digit variance in the 3rd octet can move your traffic to a completely different autonomous system.</li>
+                        <li><strong>Select the CIDR Prefix:</strong> Define the network size. Our engine handles everything from /32 (single host) to /1 (global backbone).</li>
+                        <li><strong>Analyze the Bit-Map 📈 Visualization:</strong> Review the interactive bit container to visualize the boundary between the Network and Host portions of the address.</li>
+                        <li><strong>Audit the Usable Range:</strong> identify the exact first and last usable host IPs to ensure gateway and client assignments are backed by verified data.</li>
+                        <li><strong>Generate Technical Audit:</strong> Download our PDF export to maintain a physical record for server rack documentation or network diagrams.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. Practical Quantitative Case Studies</h2>
+                    <p><strong>Scenario A (Office Expansion):</strong> A network manager needs to support 50 devices. By auditing a <strong>/26 block</strong>, our engine confirms a capacity of 62 usable hosts, providing the exact subnet mask (255.255.255.192) for the router configuration.</p>
+                    <p><strong>Scenario B (Cybersecurity Isolation):</strong> To isolate an IoT device, an analyst uses a <strong>/30 subnet</strong>. Our tool identifies that this allows only 2 usable hosts, creating a point-to-point secure link with 100% mathematical sovereignty.</p>
+                </section>
+
+                <section>
+                    <h2>5. Frequently Asked Questions (FAQ)</h2>
+                    <div class="grid sm:grid-cols-2 gap-8 mt-10">
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">Why subtract 2 from the total hosts?</h4>
+                            <p class="text-sm">In standard IPv4 networking, the first address is reserved for the <strong>Network ID</strong> and the last address is reserved for the <strong>Broadcast Address</strong>. Neither can be assigned to a host.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">Is this tool compatible with IPv6?</h4>
+                            <p class="text-sm">Currently, our lab focuses on the global IPv4 standard. An institutional <strong>IPv6 128-bit Engine</strong> is currently under development in our precision laboratory.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>6. Conclusion</h2>
+                    <p>Precision in address modeling is the only way to effectively navigate the modern technological economy. By utilizing the **DailyCalculator IP Subnet Hub**, you are accessing the world's most advanced open-source laboratory for network analytics. Secure your quantitative future, visualize your bit-masks, and download your professional report today.</p>
+                </section>
+            </article>
+        </main>
+
+        <!-- FOOTER & ADSTERRA NATIVE BANNER -->
+        <footer class="bg-gray-100 border-t p-10">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <div class="footer-native-ad">
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Expert Recommended Content</p>
+                    <div class="flex items-center justify-center gap-2 text-gray-300 italic">
+                        <i class="fas fa-network-wired"></i>
+                        <span>Native Adsterra Responsive Ad Placement Area</span>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-gray-400 text-[10px] font-bold uppercase tracking-widest border-t pt-10">
+                    &copy; 2024 DailyCalculator Hub - Precision Mathematical Laboratory Authorized Access.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CALCULATION ENGINE SCRIPT -->
+    <script>
+        function ipToLong(ip) {
+            return ip.split('.').reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+
+        function longToIp(long) {
+            return [
+                (long >>> 24) & 0xFF,
+                (long >>> 16) & 0xFF,
+                (long >>> 8) & 0xFF,
+                long & 0xFF
+            ].join('.');
+        }
+
+        function calculate() {
+            const ipInput = document.getElementById('ipAddress').value.trim();
+            const cidr = parseInt(document.getElementById('cidrSelect').value);
+
+            // Validation
+            if (!/^(?:\d{1,3}\.){3}\d{1,3}$/.test(ipInput)) {
+                document.getElementById('networkRes').innerText = "Invalid IP Format";
+                return;
+            }
+
+            const ipLong = ipToLong(ipInput);
+            const maskLong = (0xFFFFFFFF << (32 - cidr)) >>> 0;
+            const netLong = (ipLong & maskLong) >>> 0;
+            const broadLong = (netLong | ~maskLong) >>> 0;
+            const wildLong = (~maskLong) >>> 0;
+
+            const totalHosts = Math.pow(2, 32 - cidr);
+            const usableHosts = (cidr <= 30) ? totalHosts - 2 : (cidr === 31 ? 2 : 1);
+
+            // UI Update
+            document.getElementById('networkRes').innerText = longToIp(netLong);
+            document.getElementById('broadcastRes').innerText = longToIp(broadLong);
+            document.getElementById('wildcardRes').innerText = longToIp(wildLong);
+            document.getElementById('totalHostsRes').innerText = totalHosts.toLocaleString();
+            
+            const firstHost = longToIp(netLong + 1);
+            const lastHost = longToIp(broadLong - 1);
+            document.getElementById('hostRangeRes').innerText = cidr < 31 ? `${firstHost} - ${lastHost}` : "N/A (P2P/Host)";
+
+            updateBitMap(ipLong, maskLong, cidr);
+        }
+
+        function updateBitMap(ip, mask, cidr) {
+            const container = document.getElementById('bitMap');
+            container.innerHTML = "";
+            const ipBin = ip.toString(2).padStart(32, '0');
+            
+            ipBin.split('').forEach((bit, index) => {
+                const div = document.createElement('div');
+                div.className = `bit-cell ${index < cidr ? 'bit-net' : 'bit-host'}`;
+                div.innerText = bit;
+                container.appendChild(div);
+                if((index + 1) % 8 === 0 && index < 31) {
+                    const dot = document.createElement('span');
+                    dot.innerText = ".";
+                    dot.className = "mx-1 font-bold text-gray-300";
+                    container.appendChild(dot);
+                }
+            });
+        }
+
+        function downloadCSV() {
+            let csv = "Metric,Value\nNetwork Address," + document.getElementById('networkRes').innerText;
+            csv += "\nBroadcast Address," + document.getElementById('broadcastRes').innerText;
+            csv += "\nUsable Hosts," + document.getElementById('totalHostsRes').innerText;
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'subnet_audit.csv'; a.click();
+        }
+
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(18); doc.text("DailyCalculator Institutional Subnet Audit", 14, 20);
+            doc.text("Network: " + document.getElementById('networkRes').innerText, 14, 40);
+            doc.text("Broadcast: " + document.getElementById('broadcastRes').innerText, 14, 50);
+            doc.save("subnet_report.pdf");
+        }
+
+        window.onload = calculate;
+    </script>
+</body>
+</html>

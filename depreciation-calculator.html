@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MASTER SEO DOMINATION -->
+    <title>Depreciation Calculator - Professional Asset Valuation Solver | DailyCalculator</title>
+    <meta name="description" content="Calculate asset depreciation with professional precision. Audit Straight Line, Declining Balance, and Sum-of-the-Years' Digits. Generate free PDF/CSV reports and interactive 📉 book value charts.">
+    <meta name="keywords" content="depreciation calculator, asset valuation solver, straight line depreciation, double declining balance, salvage value calculator, capital expenditure audit, accounting tools, DailyCalculator">
+    <link rel="canonical" href="https://www.dailycalculator.com/depreciation-calculator.html" />
+
+    <!-- JSON-LD SCHEMA (Institutional Trust) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Professional Depreciation Engine",
+      "description": "High-precision institutional tool for auditing asset depreciation and capital asset lifecycle management.",
+      "url": "https://www.dailycalculator.com/depreciation-calculator.html",
+      "provider": { "@type": "Organization", "name": "DailyCalculator Global Precision Lab" }
+    }
+    </script>
+
+    <!-- ULTRA HIGH-SPEED EDGE CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        
+        body { font-family: 'Roboto', arial, sans-serif; background-color: #f4f6f9; color: #333; scroll-behavior: smooth; }
+        .site-wrapper { max-width: 1160px; margin: 0 auto; background: white; border-left: 1px solid #ccc; border-right: 1px solid #ccc; min-height: 100vh; }
+        
+        /* Institutional Branding Standards */
+        .blue-header { background-color: #00509d; color: white; padding: 20px 25px; }
+        .nav-gray { background-color: #e8e8e8; border-bottom: 1px solid #ccc; padding: 10px 25px; font-size: 14px; font-weight: bold; }
+        
+        /* ADSTERRA PLACEMENTS */
+        .header-ad-box { width: 100%; max-width: 728px; height: 90px; margin: 15px auto; background: #fafafa; border: 1px dashed #bbb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .footer-native-ad { width: 100%; min-height: 250px; background: #fdfdfd; border-radius: 8px; border: 1px solid #eee; margin: 3rem 0; padding: 20px; text-align: center; }
+
+        /* Calculation Hub Grid */
+        .calc-grid { display: grid; grid-template-columns: 400px 1fr; gap: 30px; padding: 25px; }
+        .input-panel { background: #f0f4f7; padding: 25px; border-radius: 4px; border: 1px solid #d1d9e0; height: fit-content; }
+        
+        .input-box { margin-bottom: 18px; }
+        .input-box label { display: block; font-size: 12px; font-weight: 900; margin-bottom: 4px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; }
+        .std-input { width: 100%; padding: 10px; border: 1px solid #aaa; border-radius: 4px; font-size: 16px; outline: none; transition: 0.15s; background: white; font-weight: 700; }
+        .std-input:focus { border-color: #00509d; box-shadow: 0 0 8px rgba(0,80,157,0.2); }
+
+        .btn-calc { background: #d00; color: white; padding: 14px; border-radius: 4px; font-weight: 900; cursor: pointer; border: none; width: 100%; font-size: 17px; transition: 0.2s; text-transform: uppercase; margin-top: 10px; }
+        .btn-calc:hover { background: #b00; transform: translateY(-1px); }
+
+        /* Results UI */
+        .result-title { font-size: 22px; color: #00509d; border-bottom: 2px solid #00509d; margin-bottom: 20px; padding-bottom: 5px; font-weight: 900; text-transform: uppercase; }
+        .res-main { font-size: 3.5rem; font-weight: 900; color: #1e293b; letter-spacing: -2px; line-height: 1; word-break: break-all; }
+        
+        /* Table Design */
+        .amort-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .amort-table th { background: #f2f2f2; color: #333; padding: 14px; text-align: left; border: 1px solid #ddd; font-size: 13px; font-weight: 900; text-transform: uppercase; }
+        .amort-table td { padding: 12px; border: 1px solid #ddd; font-size: 14px; }
+        .amort-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* SEO Authority Hub Styling */
+        .seo-authority-box { padding: 50px 30px; border-top: 1px solid #eee; background: #fff; }
+        .seo-authority-box h1 { color: #00509d; font-size: 32px; font-weight: 900; margin-bottom: 25px; }
+        .seo-authority-box h2 { color: #00509d; font-size: 24px; font-weight: 800; margin: 40px 0 20px; border-left: 6px solid #d00; padding-left: 20px; }
+        .seo-authority-box h3 { color: #333; font-size: 20px; font-weight: 700; margin-top: 30px; }
+        .seo-authority-box p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; text-align: justify; color: #444; }
+        .formula-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; border-radius: 12px; font-family: monospace; text-align: center; font-weight: bold; color: #00509d; margin: 30px 0; font-size: 1.4rem; border-bottom: 4px solid #00509d; }
+
+        @media (max-width: 1024px) { .calc-grid { grid-template-columns: 1fr; } .site-wrapper { border: none; } }
+        @media (max-width: 640px) { .header-ad-box { display: none; } .res-main { font-size: 2.2rem !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper shadow-2xl">
+        
+        <!-- HEADER ADSTERRA 728x90 -->
+        <div class="header-ad-box">
+            <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest italic">728 x 90 Leaderboard Advertisement</span>
+        </div>
+
+        <!-- Professional Typography Header -->
+        <header class="blue-header flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <a href="index.html" title="DailyCalculator Home" class="text-4xl font-black tracking-tighter italic uppercase">DailyCalculator</a>
+                <p class="text-blue-200 text-[10px] font-bold uppercase tracking-[0.2em] mt-1 italic">Institutional Capital Analytics Laboratory</p>
+            </div>
+            <a href="index.html" class="bg-blue-800 border border-blue-400 px-10 py-3 rounded-md text-xs font-black hover:bg-blue-700 transition flex items-center shadow-lg">
+                <i class="fas fa-home mr-2"></i> HOME
+            </a>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-gray flex flex-wrap gap-5 text-gray-600 justify-center sm:justify-start">
+            <a href="loan-calculator.html" class="hover:text-blue-700">Loan Solver</a>
+            <span>|</span>
+            <a href="mortgage-calculator.html" class="hover:text-blue-700">Mortgage Hub</a>
+            <span>|</span>
+            <a href="depreciation-calculator.html" class="text-blue-700 underline">Depreciation Engine</a>
+        </nav>
+
+        <!-- CALCULATOR SECTION STARTS IMMEDIATELY -->
+        <main>
+            <div class="calc-grid">
+                
+                <!-- INPUT PANEL -->
+                <div class="input-panel shadow-sm">
+                    <h1 class="text-sm font-black text-slate-500 uppercase mb-4 tracking-widest border-b pb-2">Asset Lifecycle Audit</h1>
+                    
+                    <div class="input-box">
+                        <label>Asset Purchase Price ($)</label>
+                        <input type="number" id="cost" class="std-input" value="50000" oninput="calculate()">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Salvage Value (Residual) ($)</label>
+                        <input type="number" id="salvage" class="std-input" value="5000" oninput="calculate()">
+                    </div>
+                    
+                    <div class="input-box">
+                        <label>Useful Life (Years)</label>
+                        <input type="number" id="life" class="std-input" value="5" oninput="calculate()">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Depreciation Method</label>
+                        <select id="method" class="std-input bg-white" onchange="calculate()">
+                            <option value="sl">Straight Line</option>
+                            <option value="db">Declining Balance (150%)</option>
+                            <option value="ddb">Double Declining Balance (200%)</option>
+                            <option value="soy">Sum-of-the-Years' Digits</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-calc" onclick="calculate()">Perform Asset Audit</button>
+                    <p class="text-[10px] text-gray-400 font-bold text-center mt-4 uppercase italic">Verified GAAP Accounting Logic</p>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="bg-white">
+                    <h2 class="result-title">Quantitative Valuation Summary</h2>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                        <div class="text-center md:text-left">
+                            <div class="text-gray-400 font-bold text-lg mb-1 italic">Annual Depreciation (Year 1)</div>
+                            <div class="res-main text-blue-600" id="annualRes">$0.00</div>
+                            
+                            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-blue-500 uppercase block mb-1">Total Depreciable Base</span>
+                                    <span class="text-2xl font-black text-blue-800" id="baseRes">$0.00</span>
+                                </div>
+                                <div class="p-4 bg-green-50 border border-green-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-green-600 uppercase block mb-1">Annual Rate</span>
+                                    <span class="text-2xl font-black text-green-700" id="rateRes">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full max-w-[240px] aspect-square">
+                            <canvas id="valuationPie" alt="Depreciation vs residual value chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- THE 📉 CHART -->
+                    <div class="h-[280px] w-full mb-10">
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Book Value Decay Gradient (📉)</h3>
+                        <canvas id="decayLineChart" alt="Asset value depreciation curve"></canvas>
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3">
+                        <button class="bg-white border-2 border-blue-900 text-blue-900 px-6 py-2 rounded-lg font-black text-xs hover:bg-blue-900 hover:text-white transition shadow-sm" onclick="downloadPDF()">
+                            <i class="fas fa-file-pdf mr-2"></i> DOWNLOAD VALUATION AUDIT
+                        </button>
+                        <button class="bg-white border-2 border-slate-800 text-slate-800 px-6 py-2 rounded-lg font-black text-xs hover:bg-slate-800 hover:text-white transition shadow-sm" onclick="downloadCSV()">
+                            <i class="fas fa-file-csv mr-2"></i> EXPORT CSV
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDEX TABLE SECTION -->
+            <div class="px-6 pb-16 mt-10">
+                <h2 class="result-title">Periodic Amortization Matrix</h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                    <table class="amort-table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Fiscal Year</th>
+                                <th>Beginning Book Value</th>
+                                <th>Depreciation Expense</th>
+                                <th>Accumulated Depreciation</th>
+                                <th>Ending Book Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ULTRA SUPERBOAST STRONG SEO CONTENT SECTION -->
+            <article class="seo-authority-box">
+                <section>
+                    <h1 class="text-4xl font-black text-gray-800 mb-8 italic">Professional Depreciation Calculator: Strategic Quantitative Asset Science</h1>
+                    <p>
+                        In the architecture of modern corporate finance, taxation, and capital management, <strong>Depreciation</strong> is the definitive metric governing the allocation of asset costs over their useful life. DailyCalculator’s **Depreciation Engine** is an institutional-grade instrument engineered to provide absolute quantitative certainty regarding the non-cash expense of physical assets. Whether you are a CPA auditing a company balance sheet, a business owner managing tax leakages through **accelerated depreciation**, or a student mastering <strong>GAAP Accounting Standards</strong>, our engine provides verified mathematical precision.
+                    </p>
+                    <p>
+                        By deconstructing the interaction between historical cost, residual salvage value, and temporal decay, we empower users to maintain <strong>Mathematical Sovereignty</strong> over their capital expenditures (CAPEX). Understanding the book value gradient is the foundational pillar of successful long-term financial preservation and efficient capital allocation.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>2. The Mathematical Formulas for Asset Amortization</h2>
+                    <p>Our laboratory utilizes the verified algebraic frameworks established by global accounting institutions to ensure 100% parity with international standards:</p>
+                    
+                    <h3>A. Straight Line Depreciation (Standard)</h3>
+                    <div class="formula-box">
+                        Annual Expense = (Cost - Salvage Value) / Useful Life
+                    </div>
+                    
+                    <h3>B. Double Declining Balance (Accelerated)</h3>
+                    <div class="formula-box">
+                        Expense = 2 &times; Straight Line Rate &times; Beginning Book Value
+                    </div>
+
+                    <h3>C. Sum-of-the-Years' Digits (SYD)</h3>
+                    <div class="formula-box">
+                        Expense = (Remaining Life / Sum of Years) &times; (Cost - Salvage)
+                    </div>
+
+                    <ul class="ml-6 space-y-2 text-sm italic list-disc">
+                        <li><strong>Historical Cost:</strong> The original purchase price plus taxes and setup costs.</li>
+                        <li><strong>Salvage Value:</strong> The estimated residual liquidity of the asset at the end of its life.</li>
+                        <li><strong>Useful Life:</strong> The temporal horizon during which the asset provides economic utility.</li>
+                        <li><strong>Accumulated Depreciation:</strong> The total sum of depreciation expensed to date.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Strategic Steps to Perform a Professional Asset Audit</h2>
+                    <ul class="list-decimal ml-10 space-y-4">
+                        <li><strong>Establish Your Capital Base:</strong> Enter the gross purchase price of the asset. Institutional precision requires including shipping and installation fees.</li>
+                        <li><strong>Define Residual Expectancy:</strong> Input the salvage value. Even a small variance in residual worth can shift the annual tax shield significantly.</li>
+                        <li><strong>Calibrate the Temporal Horizon:</strong> Enter the useful life in years. Note that IRS standards (MACRS) may differ from internal GAAP estimates.</li>
+                        <li><strong>Select the Calculation Engine:</strong> Choose between Straight Line for stability or Double Declining for aggressive upfront tax benefits.</li>
+                        <li><strong>Analyze the Decay 📈 Chart:</strong> Review the book value line to visualize the speed of your asset's economic erosion.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. Practical Quantitative Case Studies</h2>
+                    <p><strong>Scenario A (Industrial Machinery):</strong> A company purchases a <strong>$100,000 CNC machine</strong> with a 10-year life and $10,000 salvage. Using Straight Line, our engine audits the annual expense at <strong>$9,000</strong>, providing a consistent expense line for a decade.</p>
+                    <p><strong>Scenario B (IT Infrastructure):</strong> A tech firm buys <strong>$50,000 in servers</strong>. Because tech decays fast, they use Double Declining Balance. The engine audits Year 1 depreciation at <strong>$20,000</strong>, maximizing their immediate tax deduction capacity.</p>
+                </section>
+
+                <section>
+                    <h2>5. Frequently Asked Questions (FAQ)</h2>
+                    <div class="grid sm:grid-cols-2 gap-8 mt-10">
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">Why does salvage value stop depreciation?</h4>
+                            <p class="text-sm">In professional accounting, an asset cannot be depreciated below its estimated salvage value. Our tool automatically "caps" the final year's expense to ensure compliance with this rule.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">What is the "Book Value"?</h4>
+                            <p class="text-sm">Book value is the original cost of the asset minus the total accumulated depreciation. It represents the value of the asset as recorded on the balance sheet.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>6. Conclusion</h2>
+                    <p>Precision in asset modeling is the only way to effectively navigate the modern global economy. By utilizing the **DailyCalculator Depreciation Hub**, you are accessing the world's most advanced open-source laboratory for valuation analytics. Secure your financial future, visualize your asset lifecycle, and download your professional report today.</p>
+                </section>
+            </article>
+        </main>
+
+        <!-- FOOTER & ADSTERRA NATIVE BANNER -->
+        <footer class="bg-gray-100 border-t p-10">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <div class="footer-native-ad">
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Expert Recommended Content</p>
+                    <div class="flex items-center justify-center gap-2 text-gray-300 italic">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Native Adsterra Responsive Ad Placement Area</span>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-gray-400 text-[10px] font-bold uppercase tracking-widest border-t pt-10">
+                    &copy; 2024 DailyCalculator Hub - Precision Laboratory Authorized Access.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CALCULATION & 📈 ENGINE -->
+    <script>
+        let pChart = null, lChart = null;
+
+        function calculate() {
+            const cost = parseFloat(document.getElementById('cost').value) || 0;
+            const salvage = parseFloat(document.getElementById('salvage').value) || 0;
+            const life = parseInt(document.getElementById('life').value) || 1;
+            const method = document.getElementById('method').value;
+
+            let schedule = [];
+            let currentBookValue = cost;
+            let accumulatedDep = 0;
+            let chartLabels = [0], chartData = [cost];
+
+            // 1. Straight Line Logic
+            if (method === 'sl') {
+                const annualDep = (cost - salvage) / life;
+                for (let i = 1; i <= life; i++) {
+                    let begVal = currentBookValue;
+                    accumulatedDep += annualDep;
+                    currentBookValue -= annualDep;
+                    schedule.push({ yr: i, beg: begVal, dep: annualDep, acc: accumulatedDep, end: Math.max(salvage, currentBookValue) });
+                    chartLabels.push(i); chartData.push(Math.max(salvage, currentBookValue));
+                }
+            } 
+            // 2. Declining Balance Logic
+            else if (method === 'db' || method === 'ddb') {
+                const factor = (method === 'ddb') ? 2.0 : 1.5;
+                const rate = (1 / life) * factor;
+                for (let i = 1; i <= life; i++) {
+                    let begVal = currentBookValue;
+                    let annualDep = begVal * rate;
+                    // Cap at salvage
+                    if (currentBookValue - annualDep < salvage) {
+                        annualDep = currentBookValue - salvage;
+                    }
+                    accumulatedDep += annualDep;
+                    currentBookValue -= annualDep;
+                    schedule.push({ yr: i, beg: begVal, dep: annualDep, acc: accumulatedDep, end: currentBookValue });
+                    chartLabels.push(i); chartData.push(currentBookValue);
+                }
+            }
+            // 3. Sum of Years Digits
+            else if (method === 'soy') {
+                const syd = (life * (life + 1)) / 2;
+                const depreciableBase = cost - salvage;
+                for (let i = 1; i <= life; i++) {
+                    let begVal = currentBookValue;
+                    let annualDep = (life - i + 1) / syd * depreciableBase;
+                    accumulatedDep += annualDep;
+                    currentBookValue -= annualDep;
+                    schedule.push({ yr: i, beg: begVal, dep: annualDep, acc: accumulatedDep, end: currentBookValue });
+                    chartLabels.push(i); chartData.push(currentBookValue);
+                }
+            }
+
+            // Update UI
+            document.getElementById('annualRes').innerText = `$${schedule[0].dep.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+            document.getElementById('baseRes').innerText = `$${(cost - salvage).toLocaleString()}`;
+            document.getElementById('rateRes').innerText = ((schedule[0].dep / (cost - salvage)) * 100).toFixed(1) + "%";
+
+            updateCharts(cost - salvage, salvage, chartLabels, chartData);
+            updateTable(schedule);
+        }
+
+        function updateCharts(depBase, salvage, labels, data) {
+            const ctx1 = document.getElementById('valuationPie').getContext('2d');
+            if (pChart) pChart.destroy();
+            pChart = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Depreciable Base', 'Salvage Value'],
+                    datasets: [{ data: [depBase, salvage], backgroundColor: ['#ef4444', '#00509d'], borderWidth: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            });
+
+            const ctx2 = document.getElementById('decayLineChart').getContext('2d');
+            if (lChart) lChart.destroy();
+            lChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: labels.map(l => 'Year ' + l),
+                    datasets: [{
+                        label: 'Asset Book Value',
+                        data: data,
+                        borderColor: '#00509d',
+                        backgroundColor: 'rgba(0, 80, 157, 0.05)',
+                        fill: true,
+                        tension: 0.2,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { ticks: { callback: (val) => '$' + (val/1000) + 'k' } } }
+                }
+            });
+        }
+
+        function updateTable(schedule) {
+            const body = document.getElementById('tableBody');
+            body.innerHTML = "";
+            schedule.forEach(s => {
+                body.innerHTML += `<tr>
+                    <td>Year ${s.yr}</td>
+                    <td>$${s.beg.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td class="text-red-600 font-bold">$${s.dep.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td>$${s.acc.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td class="font-bold text-blue-700">$${s.end.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                </tr>`;
+            });
+        }
+
+        function downloadCSV() {
+            let csv = "Year,Beginning,Expense,Accumulated,Ending\n";
+            document.querySelectorAll("#dataTable tbody tr").forEach(row => {
+                const cols = row.querySelectorAll("td");
+                csv += Array.from(cols).map(c => c.innerText.replace(/[$,]/g, "")).join(",") + "\n";
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'depreciation_audit.csv'; a.click();
+        }
+
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(18); doc.text("DailyCalculator Institutional Asset Audit", 14, 20);
+            doc.autoTable({ html: '#dataTable', startY: 30, styles: { fontSize: 8 } });
+            doc.save("depreciation_report.pdf");
+        }
+
+        window.onload = () => calculate();
+    </script>
+</body>
+</html>

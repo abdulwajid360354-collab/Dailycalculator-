@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MASTER SEO DOMINATION & E-E-A-T AUDIT -->
+    <title>Inventory Calculator - Professional EOQ & Reorder Point Solver | DailyCalculator</title>
+    <meta name="description" content="Use our professional Inventory Calculator to solve for Economic Order Quantity (EOQ) and Reorder Points. Features safety stock auditing, interactive inventory 📈 charts, and free PDF/CSV reports.">
+    <meta name="keywords" content="inventory calculator, EOQ calculator, economic order quantity, reorder point solver, safety stock calculator, inventory management tool, supply chain auditor, DailyCalculator">
+    <link rel="canonical" href="https://www.dailycalculator.com/inventory-calculator.html" />
+
+    <!-- JSON-LD SCHEMA (Institutional Trust) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Professional Inventory Analytics Engine",
+      "description": "High-precision institutional tool for auditing inventory levels, EOQ optimization, and reorder point dynamics.",
+      "url": "https://www.dailycalculator.com/inventory-calculator.html",
+      "provider": { "@type": "Organization", "name": "DailyCalculator Global Precision Lab" }
+    }
+    </script>
+
+    <!-- ULTRA HIGH-SPEED EDGE CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        
+        body { font-family: 'Roboto', arial, sans-serif; background-color: #f4f6f9; color: #333; scroll-behavior: smooth; }
+        .site-wrapper { max-width: 1160px; margin: 0 auto; background: white; border-left: 1px solid #ccc; border-right: 1px solid #ccc; min-height: 100vh; }
+        
+        /* Institutional Branding */
+        .blue-header { background-color: #00509d; color: white; padding: 20px 25px; }
+        .nav-gray { background-color: #e8e8e8; border-bottom: 1px solid #ccc; padding: 10px 25px; font-size: 14px; font-weight: bold; }
+        
+        /* ADSTERRA PLACEMENTS */
+        .header-ad-box { width: 100%; max-width: 728px; height: 90px; margin: 15px auto; background: #fafafa; border: 1px dashed #bbb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .footer-native-ad { width: 100%; min-height: 250px; background: #fdfdfd; border-radius: 8px; border: 1px solid #eee; margin: 3rem 0; padding: 20px; text-align: center; }
+
+        /* Calculation Hub Grid */
+        .calc-grid { display: grid; grid-template-columns: 380px 1fr; gap: 30px; padding: 25px; }
+        .input-panel { background: #f0f4f7; padding: 25px; border-radius: 4px; border: 1px solid #d1d9e0; height: fit-content; }
+        
+        .input-box { margin-bottom: 15px; }
+        .input-box label { display: block; font-size: 12px; font-weight: 900; margin-bottom: 4px; color: #555; text-transform: uppercase; }
+        .std-input { width: 100%; padding: 10px; border: 1px solid #aaa; border-radius: 4px; font-size: 15px; outline: none; transition: 0.1s; background: white; font-weight: 700; }
+        .std-input:focus { border-color: #00509d; box-shadow: 0 0 4px rgba(0,80,157,0.2); }
+
+        .btn-calc { background: #d00; color: white; padding: 14px; border-radius: 4px; font-weight: 900; cursor: pointer; border: none; width: 100%; font-size: 17px; transition: 0.2s; text-transform: uppercase; margin-top: 10px; }
+        .btn-calc:hover { background: #b00; transform: translateY(-1px); }
+
+        /* Results UI */
+        .result-title { font-size: 22px; color: #00509d; border-bottom: 2px solid #00509d; margin-bottom: 20px; padding-bottom: 5px; font-weight: 900; text-transform: uppercase; }
+        .res-main { font-size: 3.5rem; font-weight: 900; color: #1e293b; letter-spacing: -2px; line-height: 1.1; }
+        
+        /* Analysis Matrix */
+        .amort-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        .amort-table th { background: #f2f2f2; color: #333; padding: 14px; text-align: left; border: 1px solid #ddd; font-size: 13px; font-weight: 900; text-transform: uppercase; }
+        .amort-table td { padding: 12px; border: 1px solid #ddd; font-size: 14px; }
+        .amort-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* SEO Authority Hub Styling */
+        .seo-authority-box { padding: 50px 30px; border-top: 1px solid #eee; background: #fff; }
+        .seo-authority-box h1 { color: #00509d; font-size: 32px; font-weight: 900; margin-bottom: 25px; }
+        .seo-authority-box h2 { color: #00509d; font-size: 24px; font-weight: 800; margin: 40px 0 20px; border-left: 6px solid #d00; padding-left: 20px; }
+        .seo-authority-box h3 { color: #333; font-size: 20px; font-weight: 700; margin-top: 30px; }
+        .seo-authority-box p { font-size: 16px; line-height: 1.9; margin-bottom: 20px; text-align: justify; color: #444; }
+        .formula-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; border-radius: 12px; font-family: monospace; text-align: center; font-weight: bold; color: #00509d; margin: 30px 0; font-size: 1.5rem; border-bottom: 4px solid #00509d; }
+
+        @media (max-width: 1024px) { .calc-grid { grid-template-columns: 1fr; } .site-wrapper { border: none; } }
+        @media (max-width: 640px) { .header-ad-box { height: 60px; } .res-main { font-size: 2.2rem !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper shadow-2xl">
+        
+        <!-- HEADER ADSTERRA 728x90 -->
+        <div class="header-ad-box">
+            <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest italic">728 x 90 Leaderboard Advertisement</span>
+        </div>
+
+        <!-- Professional Typography Header -->
+        <header class="blue-header flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <a href="index.html" title="DailyCalculator Home" class="text-4xl font-black tracking-tighter italic uppercase">DailyCalculator</a>
+                <p class="text-blue-200 text-[10px] font-bold uppercase tracking-[0.2em] mt-1 italic">Institutional Business & Logistics Laboratory</p>
+            </div>
+            <a href="index.html" class="bg-blue-800 border border-blue-400 px-10 py-3 rounded-md text-xs font-black hover:bg-blue-700 transition flex items-center shadow-lg">
+                <i class="fas fa-home mr-2"></i> HOME
+            </a>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-gray flex flex-wrap gap-5 text-gray-600 justify-center sm:justify-start">
+            <a href="profit-calculator.html" class="hover:text-blue-700">Profit Solver</a>
+            <span>|</span>
+            <a href="margin-calculator.html" class="hover:text-blue-700">Margin Engine</a>
+            <span>|</span>
+            <a href="inventory-calculator.html" class="text-blue-700 underline">Inventory Hub</a>
+        </nav>
+
+        <!-- CALCULATOR SECTION STARTS IMMEDIATELY -->
+        <main>
+            <div class="calc-grid">
+                
+                <!-- INPUT PANEL -->
+                <div class="input-panel shadow-sm">
+                    <h1 class="text-sm font-black text-slate-500 uppercase mb-4 tracking-widest border-b pb-2">Institutional Inventory Audit</h1>
+                    
+                    <div class="input-box">
+                        <label>Annual Demand (Units)</label>
+                        <input type="number" id="demand" class="std-input" value="12000" oninput="calculate()">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Order Cost (Setup) ($)</label>
+                        <input type="number" id="orderCost" class="std-input" value="50" oninput="calculate()">
+                        <p class="text-[9px] text-gray-400">Cost per individual order placement</p>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Carrying Cost (Holding) ($/unit)</label>
+                        <input type="number" id="holdingCost" class="std-input" value="2" step="0.1" oninput="calculate()">
+                        <p class="text-[9px] text-gray-400">Annual cost to store one unit</p>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Lead Time (Days)</label>
+                        <input type="number" id="leadTime" class="std-input" value="7" oninput="calculate()">
+                    </div>
+
+                    <div class="input-box">
+                        <label>Daily Unit Sales (Avg)</label>
+                        <input type="number" id="dailyUsage" class="std-input" value="40" oninput="calculate()">
+                    </div>
+
+                    <button class="btn-calc" onclick="calculate()">Perform Logistics Audit</button>
+                    <p class="text-[10px] text-gray-400 font-bold text-center mt-4 uppercase italic">Verified Ford-Harris EOQ Model</p>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="bg-white">
+                    <h2 class="result-title">Quantitative Stock Summary</h2>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                        <div class="text-center md:text-left">
+                            <div class="text-gray-400 font-bold text-lg mb-1 italic">Optimal Order Quantity (EOQ)</div>
+                            <div class="res-main text-blue-600" id="eoqRes">775</div>
+                            <p class="text-[10px] font-black text-gray-400 uppercase mt-2 tracking-widest">Units per Order</p>
+                            
+                            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-blue-600 uppercase block mb-1">Reorder Point (ROP)</span>
+                                    <span class="text-2xl font-black text-blue-800" id="ropRes">280 Units</span>
+                                </div>
+                                <div class="p-4 bg-green-50 border border-green-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-green-600 uppercase block mb-1">Annual Orders</span>
+                                    <span class="text-2xl font-black text-green-700" id="ordersRes">15.5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full max-w-[240px] aspect-square">
+                            <canvas id="costPieChart" alt="Order vs Holding cost ratio chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="h-[280px] w-full mb-10">
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Total Cost Gradient (📉)</h3>
+                        <canvas id="eoqLineChart" alt="Inventory total cost curve chart"></canvas>
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3">
+                        <button class="bg-white border-2 border-blue-900 text-blue-900 px-6 py-2 rounded-lg font-black text-xs hover:bg-blue-900 hover:text-white transition shadow-sm" onclick="downloadPDF()">
+                            <i class="fas fa-file-pdf mr-2"></i> DOWNLOAD LOGISTICS AUDIT
+                        </button>
+                        <button class="bg-white border-2 border-slate-800 text-slate-800 px-6 py-2 rounded-lg font-black text-xs hover:bg-slate-800 hover:text-white transition shadow-sm" onclick="downloadCSV()">
+                            <i class="fas fa-file-csv mr-2"></i> EXPORT DATA
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPARISON MATRIX -->
+            <div class="px-6 pb-16 mt-10">
+                <h2 class="result-title">Reorder Sensitivity Matrix</h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                    <table class="amort-table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Lead Time Horizon</th>
+                                <th>Safety Stock (Units)</th>
+                                <th>Calculated ROP ($)</th>
+                                <th>Risk Coverage State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ULTRA SUPERBOAST STRONG SEO CONTENT SECTION -->
+            <article class="seo-authority-box">
+                <section>
+                    <h1>Professional Inventory Calculator: Strategic Supply Chain Decision Science</h1>
+                    <p>
+                        In the architecture of modern global commerce, <strong>Inventory Management</strong> is the definitive metric governing operational liquidity and capital efficiency. DailyCalculator’s **Inventory Engine** is an institutional-grade instrument engineered to provide absolute quantitative certainty regarding your stock levels. Whether you are a warehouse manager auditing a multi-SKU distribution center, a retail entrepreneur timing vendor replenishment, or a logistics analyst solving for the <strong>Economic Order Quantity (EOQ)</strong>, our engine provides verified mathematical precision based on <strong>Industrial Supply Chain Standards</strong>.
+                    </p>
+                    <p>
+                        By deconstructing the interaction between annual demand velocity, order setup leakages, and unit carrying costs, we empower users to maintain <strong>Mathematical Sovereignty</strong> over their assets. Understanding your Reorder Point (ROP) is the foundational pillar of successful long-term inventory preservation and out-of-stock risk management.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>2. The Mathematical Formulas for Inventory Optimization</h2>
+                    <p>Our laboratory utilizes the verified algebraic frameworks established by F.W. Harris to ensure 100% parity with international logistics standards:</p>
+                    
+                    <h3>Economic Order Quantity (EOQ) Formula</h3>
+                    <div class="formula-box">
+                        EOQ = &radic; [ (2 &times; Demand &times; Order Cost) / Holding Cost ]
+                    </div>
+                    
+                    <h3>Reorder Point (ROP) Formula</h3>
+                    <div class="formula-box">
+                        ROP = (Daily Usage &times; Lead Time) + Safety Stock
+                    </div>
+                    <ul class="ml-6 space-y-2 text-sm italic list-disc">
+                        <li><strong>Annual Demand:</strong> The total sum of units expected to be sold in a fiscal year.</li>
+                        <li><strong>Carrying Cost:</strong> The total capital expenditure required to house one unit of stock (warehousing, insurance, tax).</li>
+                        <li><strong>Lead Time:</strong> The temporal horizon between placing an order and physical receipt of goods.</li>
+                        <li><strong>Setup Cost:</strong> The labor and administrative cost of initiating a purchase order.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Strategic Steps to Perform a Professional Logistics Audit</h2>
+                    <ul class="list-decimal ml-10 space-y-4">
+                        <li><strong>Establish Your Demand Base:</strong> Enter the annual unit sales. Accuracy is vital; even a 5% variance in demand forecasting can shift the EOQ by hundreds of units.</li>
+                        <li><strong>Identify Operational Leakages:</strong> Input your setup and holding costs. High holding costs (e.g., cold storage) drastically reduce the optimal order size.</li>
+                        <li><strong>Define Your Temporal Lead Time:</strong> Input the number of days it takes for stock to arrive. This defines your ROP safety buffer.</li>
+                        <li><strong>Analyze the Total Cost 📈 Chart:</strong> Review the cost curve to visualize the "Sweet Spot" where carrying costs and ordering costs reach equilibrium.</li>
+                        <li><strong>Generate Technical Audit:</strong> Download our PDF export to maintain a physical record for procurement meetings or stakeholder reviews.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. Practical Quantitative Case Studies</h2>
+                    <p><strong>Scenario A (Retail Optimization):</strong> A hardware store sells <strong>12,000 drills annually</strong>. Each order costs <strong>$50</strong> to process, and it costs <strong>$2 per unit</strong> to store. Our engine audits the EOQ at <strong>775 units</strong>, suggesting 15.5 orders per year to minimize total cost.</p>
+                    <p><strong>Scenario B (E-commerce Safety):</strong> A brand selling 40 units per day with a 7-day lead time identifies their ROP at <strong>280 units</strong>. By auditing this daily, they prevent stockouts, serving as a primary safety lever for revenue protection.</p>
+                </section>
+
+                <section>
+                    <h2>5. Frequently Asked Questions (FAQ)</h2>
+                    <div class="grid sm:grid-cols-2 gap-8 mt-10">
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">What is the "Holding Cost" comprised of?</h4>
+                            <p class="text-sm">In institutional finance, holding cost includes warehouse rent, utilities, insurance, labor, and the "Opportunity Cost" of the capital tied up in stock.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">Is the EOQ model accurate for all businesses?</h4>
+                            <p class="text-sm">The EOQ model is highly reliable for businesses with steady demand. For highly seasonal or volatile industries, we recommend auditing the **Safety Stock** variables within our matrix.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>6. Conclusion</h2>
+                    <p>Precision in inventory modeling is the only way to effectively navigate the modern data-driven economy. By utilizing the **DailyCalculator Inventory Hub**, you are accessing the world's most advanced open-source laboratory for logistics analytics. Secure your quantitative future, visualize your stock velocity, and download your professional report today.</p>
+                </section>
+            </article>
+        </main>
+
+        <!-- FOOTER & ADSTERRA NATIVE -->
+        <footer class="bg-gray-100 border-t p-10">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <!-- Adsterra Native Responsive -->
+                <div class="footer-native-ad">
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Expert Recommended Content</p>
+                    <div class="flex items-center justify-center gap-2 text-gray-300 italic">
+                        <i class="fas fa-boxes-stacked"></i>
+                        <span>Native Adsterra Responsive Ad Placement</span>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-gray-400 text-[10px] font-bold uppercase tracking-widest border-t pt-10">
+                    &copy; 2024 DailyCalculator Hub - Precision Mathematical Laboratory Authorized Access.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CALCULATION & 📈 ENGINE -->
+    <script>
+        let pChart = null, lChart = null;
+
+        function calculate() {
+            const D = parseFloat(document.getElementById('demand').value) || 0;
+            const S = parseFloat(document.getElementById('orderCost').value) || 0;
+            const H = parseFloat(document.getElementById('holdingCost').value) || 0;
+            const LT = parseFloat(document.getElementById('leadTime').value) || 0;
+            const usage = parseFloat(document.getElementById('dailyUsage').value) || 0;
+
+            if (D <= 0 || S <= 0 || H <= 0) return;
+
+            // EOQ Formula: sqrt(2DS/H)
+            const eoq = Math.sqrt((2 * D * S) / H);
+            const rop = (usage * LT);
+            const totalOrders = D / eoq;
+
+            // UI Display
+            document.getElementById('eoqRes').innerText = Math.round(eoq).toLocaleString();
+            document.getElementById('ropRes').innerText = Math.round(rop).toLocaleString() + " Units";
+            document.getElementById('ordersRes').innerText = totalOrders.toFixed(1);
+
+            updateCharts(D, S, H, eoq);
+            updateTable(usage, LT);
+        }
+
+        function updateCharts(D, S, H, eoq) {
+            // 1. Pie Chart (Order vs Holding Cost at EOQ)
+            const annualOrderCost = (D / eoq) * S;
+            const annualHoldingCost = (eoq / 2) * H;
+            
+            const ctx1 = document.getElementById('costPieChart').getContext('2d');
+            if (pChart) pChart.destroy();
+            pChart = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Order Cost', 'Holding Cost'],
+                    datasets: [{ data: [annualOrderCost, annualHoldingCost], backgroundColor: ['#00509d', '#16a34a'], borderWidth: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            });
+
+            // 2. Line Chart (📈 Total Cost Curve)
+            const ctx2 = document.getElementById('eoqLineChart').getContext('2d');
+            if (lChart) lChart.destroy();
+            
+            const labels = [];
+            const orderCosts = [];
+            const holdCosts = [];
+            const totalCosts = [];
+            
+            const startRange = Math.max(10, eoq * 0.4);
+            const endRange = eoq * 1.6;
+            const step = (endRange - startRange) / 10;
+
+            for (let i = 0; i <= 10; i++) {
+                let q = startRange + (i * step);
+                let oc = (D / q) * S;
+                let hc = (q / 2) * H;
+                labels.push(Math.round(q));
+                totalCosts.push(oc + hc);
+            }
+
+            lChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Annual Total Cost ($)',
+                        data: totalCosts,
+                        borderColor: '#d00',
+                        backgroundColor: 'rgba(211, 0, 0, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+
+        function updateTable(usage, lt) {
+            const body = document.getElementById('tableBody');
+            body.innerHTML = "";
+            const horizons = [lt, lt + 3, lt + 7, lt + 14];
+            const safetyFactor = [0, 20, 50, 100];
+            
+            horizons.forEach((h, i) => {
+                let ropVal = (usage * h) + safetyFactor[i];
+                body.innerHTML += `<tr>
+                    <td>${h} Days</td>
+                    <td>${safetyFactor[i]} Units</td>
+                    <td class="font-bold text-blue-700">${Math.round(ropVal).toLocaleString()}</td>
+                    <td>${i > 1 ? 'High Coverage' : 'Standard'}</td>
+                </tr>`;
+            });
+        }
+
+        function downloadCSV() {
+            let csv = "Metric,Value\nEOQ," + document.getElementById('eoqRes').innerText + "\nROP," + document.getElementById('ropRes').innerText;
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'inventory_audit.csv'; a.click();
+        }
+
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(18); doc.text("DailyCalculator Institutional Inventory Audit", 14, 20);
+            doc.autoTable({ html: '#dataTable', startY: 30 });
+            doc.save("inventory_report.pdf");
+        }
+
+        window.onload = calculate;
+    </script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MASTER SEO DOMINATION & BOT PRIORITY -->
+    <title>Cash Flow Calculator - Professional Net Cash Flow & Liquidity Solver | DailyCalculator</title>
+    <meta name="description" content="Calculate net cash flow with our professional Cash Flow Calculator. Audit operating, investing, and financing cash flows with interactive 📈 charts and free PDF/CSV reports. Accurate and fast.">
+    <meta name="keywords" content="cash flow calculator, net cash flow solver, operating cash flow, business liquidity tool, free cash flow calculator, cash flow statement audit, financial auditor, DailyCalculator">
+    <link rel="canonical" href="https://www.dailycalculator.com/cash-flow-calculator.html" />
+
+    <!-- JSON-LD SCHEMA (Institutional Trust) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialCalculator",
+      "name": "Professional Cash Flow Engine",
+      "description": "High-precision institutional tool for auditing business cash flows, liquidity velocity, and net cash positions.",
+      "url": "https://www.dailycalculator.com/cash-flow-calculator.html",
+      "provider": { "@type": "Organization", "name": "DailyCalculator Global Precision Lab" }
+    }
+    </script>
+
+    <!-- ULTRA HIGH-SPEED EDGE CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        
+        body { font-family: 'Roboto', arial, sans-serif; background-color: #f4f6f9; color: #333; scroll-behavior: smooth; }
+        .site-wrapper { max-width: 1160px; margin: 0 auto; background: white; border-left: 1px solid #ccc; border-right: 1px solid #ccc; min-height: 100vh; }
+        
+        /* Institutional Branding */
+        .blue-header { background-color: #00509d; color: white; padding: 20px 25px; }
+        .nav-gray { background-color: #e8e8e8; border-bottom: 1px solid #ccc; padding: 10px 25px; font-size: 14px; font-weight: bold; }
+        
+        /* ADSTERRA PLACEMENTS */
+        .header-ad-box { width: 100%; max-width: 728px; height: 90px; margin: 15px auto; background: #fafafa; border: 1px dashed #bbb; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .footer-native-ad { width: 100%; min-height: 250px; background: #fdfdfd; border-radius: 8px; border: 1px solid #eee; margin: 3rem 0; padding: 20px; text-align: center; }
+
+        /* Calculation Hub Grid */
+        .calc-grid { display: grid; grid-template-columns: 420px 1fr; gap: 30px; padding: 25px; }
+        .input-panel { background: #f0f4f7; padding: 25px; border-radius: 4px; border: 1px solid #d1d9e0; height: fit-content; }
+        
+        .cat-title { font-size: 12px; font-weight: 900; color: #00509d; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; margin: 20px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .input-box { margin-bottom: 15px; }
+        .input-box label { display: block; font-size: 11px; font-weight: 700; margin-bottom: 4px; color: #555; text-transform: uppercase; }
+        .std-input { width: 100%; padding: 10px; border: 1px solid #aaa; border-radius: 4px; font-size: 15px; outline: none; transition: 0.1s; background: white; font-weight: 700; }
+        .std-input:focus { border-color: #00509d; box-shadow: 0 0 4px rgba(0,80,157,0.2); }
+
+        .btn-calc { background: #d00; color: white; padding: 14px; border-radius: 4px; font-weight: 900; cursor: pointer; border: none; width: 100%; font-size: 17px; transition: 0.2s; text-transform: uppercase; margin-top: 10px; }
+        .btn-calc:hover { background: #b00; transform: translateY(-1px); }
+
+        /* Results UI */
+        .result-title { font-size: 22px; color: #00509d; border-bottom: 2px solid #00509d; margin-bottom: 20px; padding-bottom: 5px; font-weight: 900; text-transform: uppercase; }
+        .res-main { font-size: 3.5rem; font-weight: 900; color: #1e293b; letter-spacing: -2px; line-height: 1.1; }
+        
+        .amort-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+        .amort-table th { background: #f2f2f2; color: #333; padding: 14px; text-align: left; border: 1px solid #ddd; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+        .amort-table td { padding: 12px; border: 1px solid #ddd; font-size: 14px; }
+        .amort-table tr:nth-child(even) { background: #f9f9f9; }
+
+        /* SEO Authority Hub Styling */
+        .seo-authority-box { padding: 50px 30px; border-top: 1px solid #eee; background: #fff; }
+        .seo-authority-box h1 { color: #00509d; font-size: 32px; font-weight: 900; margin-bottom: 25px; }
+        .seo-authority-box h2 { color: #00509d; font-size: 24px; font-weight: 800; margin: 40px 0 20px; border-left: 6px solid #d00; padding-left: 20px; }
+        .seo-authority-box h3 { color: #333; font-size: 20px; font-weight: 700; margin-top: 30px; }
+        .seo-authority-box p { font-size: 16px; line-height: 2; margin-bottom: 20px; text-align: justify; color: #444; }
+        .formula-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 30px; border-radius: 12px; font-family: monospace; text-align: center; font-weight: bold; color: #00509d; margin: 30px 0; font-size: 1.4rem; border-bottom: 4px solid #00509d; }
+
+        @media (max-width: 1024px) { .calc-grid { grid-template-columns: 1fr; } .site-wrapper { border: none; } }
+        @media (max-width: 640px) { .header-ad-box { height: 60px; } .res-main { font-size: 2.2rem !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper shadow-2xl">
+        
+        <!-- HEADER ADSTERRA 728x90 -->
+        <div class="header-ad-box">
+            <!-- PASTE YOUR ADSTERRA 728x90 SCRIPT HERE -->
+            <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest italic">728 x 90 Leaderboard Advertisement</span>
+        </div>
+
+        <!-- Professional Typography Header -->
+        <header class="blue-header flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-center sm:text-left">
+                <a href="index.html" title="DailyCalculator Home" class="text-4xl font-black tracking-tighter italic uppercase">DailyCalculator</a>
+                <p class="text-blue-200 text-[10px] font-bold uppercase tracking-[0.2em] mt-1 italic">Institutional Financial Engineering Laboratory</p>
+            </div>
+            <a href="index.html" class="bg-blue-800 border border-blue-400 px-10 py-3 rounded-md text-xs font-black hover:bg-blue-700 transition flex items-center shadow-lg">
+                <i class="fas fa-home mr-2"></i> HOME
+            </a>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-gray flex flex-wrap gap-5 text-gray-600 justify-center sm:justify-start">
+            <a href="investment-calculator.html" class="hover:text-blue-700">Investment ROI</a>
+            <span>|</span>
+            <a href="profit-calculator.html" class="hover:text-blue-700">Profit Solver</a>
+            <span>|</span>
+            <a href="cash-flow-calculator.html" class="text-blue-700 underline">Cash Flow Engine</a>
+        </nav>
+
+        <!-- CALCULATOR SECTION STARTS IMMEDIATELY -->
+        <main>
+            <div class="calc-grid">
+                
+                <!-- INPUT PANEL -->
+                <div class="input-panel shadow-sm">
+                    <h1 class="text-sm font-black text-slate-500 uppercase mb-4 tracking-widest border-b pb-2">Institutional Cash Audit</h1>
+                    
+                    <div class="cat-title">Operating Inflows</div>
+                    <div class="input-box">
+                        <label>Total Cash Revenue ($)</label>
+                        <input type="number" id="revenue" class="std-input" value="50000" oninput="calculate()">
+                    </div>
+
+                    <div class="cat-title">Operating Outflows</div>
+                    <div class="input-box">
+                        <label>Cost of Goods (COGS) ($)</label>
+                        <input type="number" id="cogs" class="std-input" value="20000" oninput="calculate()">
+                    </div>
+                    <div class="input-box">
+                        <label>Operating Expenses ($)</label>
+                        <input type="number" id="opex" class="std-input" value="10000" oninput="calculate()">
+                    </div>
+
+                    <div class="cat-title">Financing & Investing</div>
+                    <div class="input-box">
+                        <label>Asset Sales / Investing In ($)</label>
+                        <input type="number" id="investIn" class="std-input" value="0" oninput="calculate()">
+                    </div>
+                    <div class="input-box">
+                        <label>Asset Purchase / Investing Out ($)</label>
+                        <input type="number" id="investOut" class="std-input" value="5000" oninput="calculate()">
+                    </div>
+                    <div class="input-box">
+                        <label>Loan Payouts / Financing Out ($)</label>
+                        <input type="number" id="financeOut" class="std-input" value="2000" oninput="calculate()">
+                    </div>
+
+                    <button class="btn-calc" onclick="calculate()">Perform Cash Audit</button>
+                    <p class="text-[10px] text-gray-400 font-bold text-center mt-4 uppercase italic">Verified Direct Method Logic</p>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="bg-white">
+                    <h2 class="result-title">Quantitative Liquidity Summary</h2>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                        <div class="text-center md:text-left">
+                            <div class="text-gray-400 font-bold text-lg mb-1 italic">Net Cash Flow</div>
+                            <div class="res-main text-green-600" id="netFlowRes">$0.00</div>
+                            
+                            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="p-4 bg-blue-50 border border-blue-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-blue-500 uppercase block mb-1">Total Inflow</span>
+                                    <span class="text-2xl font-black text-blue-800" id="totalInRes">$0.00</span>
+                                </div>
+                                <div class="p-4 bg-red-50 border border-red-100 rounded-xl text-center">
+                                    <span class="text-[10px] font-bold text-red-600 uppercase block mb-1">Total Outflow</span>
+                                    <span class="text-2xl font-black text-red-700" id="totalOutRes">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full max-w-[240px] aspect-square">
+                            <canvas id="cashPieChart" alt="Cash flow inflow vs outflow ratio chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="h-[280px] w-full mb-10">
+                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Cumulative Liquidity Gradient (📈)</h3>
+                        <canvas id="cashLineChart" alt="Cumulative cash flow progression chart"></canvas>
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3">
+                        <button class="bg-white border-2 border-blue-900 text-blue-900 px-6 py-2 rounded-lg font-black text-xs hover:bg-blue-900 hover:text-white transition shadow-sm" onclick="downloadPDF()">
+                            <i class="fas fa-file-pdf mr-2"></i> DOWNLOAD CASH AUDIT
+                        </button>
+                        <button class="bg-white border-2 border-slate-800 text-slate-800 px-6 py-2 rounded-lg font-black text-xs hover:bg-slate-800 hover:text-white transition shadow-sm" onclick="downloadCSV()">
+                            <i class="fas fa-file-csv mr-2"></i> EXPORT DATA
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPARISON MATRIX -->
+            <div class="px-6 pb-16 mt-10">
+                <h2 class="result-title">Periodic Liquidity Matrix</h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                    <table class="amort-table" id="dataTable">
+                        <thead>
+                            <tr>
+                                <th>Operational Interval</th>
+                                <th>Total Inflows ($)</th>
+                                <th>Total Outflows ($)</th>
+                                <th>Net Position ($)</th>
+                                <th>Liquidity Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ULTRA SUPERBOAST STRONG SEO CONTENT SECTION -->
+            <article class="seo-authority-box">
+                <section>
+                    <h1>Professional Cash Flow Calculator: Strategic Quantitative Decision Science</h1>
+                    <p>
+                        In the architecture of modern corporate finance and sustainable entrepreneurship, the <strong>Cash Flow</strong> is the definitive metric governing operational survival and scaling potential. DailyCalculator’s **Cash Flow Engine** is an institutional-grade instrument engineered to provide absolute quantitative certainty regarding your liquidity velocity. Whether you are a CFO auditing quarterly treasury reports, a startup founder modeling burn rates, or an investor evaluating a company's <strong>Free Cash Flow (FCF)</strong>, our engine provides verified mathematical precision based on <strong>GAAP and IFRS Reporting Standards</strong>.
+                    </p>
+                    <p>
+                        By deconstructing the interaction between operational revenue, capital expenditures (CapEx), and financing leakages, we empower users to maintain <strong>Mathematical Sovereignty</strong> over their fiscal health. Understanding your net cash position is the foundational pillar of successful long-term wealth preservation and institutional risk management.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>2. The Mathematical Formula for Net Cash Flow</h2>
+                    <p>Our laboratory utilizes the verified algebraic frameworks establish by international accounting bodies to ensure 100% parity with professional financial reporting. The logic is predicated on the <strong>Direct Method</strong> of cash accounting:</p>
+                    <div class="formula-box">
+                        Net Cash Flow = (C<sub>Operating</sub> + C<sub>Investing</sub> + C<sub>Financing</sub>)
+                    </div>
+                    <ul class="ml-6 space-y-2 text-sm italic list-disc">
+                        <li><strong>Operating Cash Flow (OCF):</strong> Cash generated from core business production.</li>
+                        <li><strong>Investing Cash Flow (ICF):</strong> Cash used for or generated from asset acquisition/disposal.</li>
+                        <li><strong>Financing Cash Flow (FCF):</strong> Cash movement from debt issuance, repayments, or equity dividends.</li>
+                        <li><strong>Net Position:</strong> The actual surplus or deficit of liquid capital after all flows are reconciled.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Strategic Steps to Perform a Professional Liquidity Audit</h2>
+                    <ul class="list-decimal ml-10 space-y-4">
+                        <li><strong>Identify Your Inflow Base:</strong> Enter the absolute cash revenue received during the period. Institutional precision requires using actual cash receipts, not just billed invoices.</li>
+                        <li><strong>Establish Your Outflow Matrix:</strong> Input the Cost of Goods Sold (COGS) and fixed Operating Expenses. These represent the "Operational Friction" of your entity.</li>
+                        <li><strong>Calibrate Non-Operational Flows:</strong> Define your investing and financing activities (e.g., purchasing new machinery or paying off an industrial loan).</li>
+                        <li><strong>Analyze the Accumulation 📈 Chart:</strong> Review the gradient line to visualize the cumulative impact of your cash position over the temporal horizon.</li>
+                        <li><strong>Generate Technical Audit:</strong> Download our PDF export to maintain a physical record for stakeholder reviews or tax compliance audits.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. Practical Quantitative Case Studies</h2>
+                    <p><strong>Scenario A (The Profitable Deficit):</strong> A business shows <strong>$50,000 in net profit</strong> on an accrual basis, but our engine audits the cash flow at <strong>-$10,000</strong> due to heavy inventory investment. This identifies a "Liquidity Crisis" risk that standard profit calculators fail to detect.</p>
+                    <p><strong>Scenario B (Scaling Velocity):</strong> An e-commerce brand auditing its monthly cycle discovers that by reducing its shipping outflows by 5%, it creates an annual liquidity surplus of <strong>$12,000</strong>, serving as a primary lever for hiring new staff.</p>
+                </section>
+
+                <section>
+                    <h2>5. Frequently Asked Questions (FAQ)</h2>
+                    <div class="grid sm:grid-cols-2 gap-8 mt-10">
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">Is Cash Flow the same as Profit?</h4>
+                            <p class="text-sm">No. Profit (Accrual) measures revenue minus expenses, regardless of when cash is received. Cash Flow tracks the <strong>actual movement</strong> of liquidity. A profitable company can still go bankrupt if its cash flow is negative.</p>
+                        </div>
+                        <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
+                            <h4 class="font-bold text-blue-900 mb-3 italic">What is Free Cash Flow (FCF)?</h4>
+                            <p class="text-sm">FCF is the cash remaining after a company pays for its operating expenses and capital expenditures. It is the primary metric investors use to determine a company's ability to pay dividends.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>6. Conclusion</h2>
+                    <p>Precision in liquidity modeling is the only way to effectively navigate the modern data-driven economy. By utilizing the **DailyCalculator Cash Flow Hub**, you are accessing the world's most advanced open-source laboratory for fiscal analytics. Secure your quantitative future, visualize your cash velocity, and download your professional report today.</p>
+                </section>
+            </article>
+        </main>
+
+        <!-- FOOTER & ADSTERRA NATIVE BANNER -->
+        <footer class="bg-gray-100 border-t p-10">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <!-- Adsterra Native Responsive -->
+                <div class="footer-native-ad">
+                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-4">Expert Recommended Content</p>
+                    <div class="flex items-center justify-center gap-2 text-gray-300 italic">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Native Adsterra Responsive Ad Placement Area</span>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-gray-400 text-[10px] font-bold uppercase tracking-widest border-t pt-10">
+                    &copy; 2024 DailyCalculator Hub - Precision Mathematical Laboratory Authorized Access.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- CALCULATION & 📈 ENGINE -->
+    <script>
+        let pChart = null, lChart = null;
+
+        function calculate() {
+            const rev = parseFloat(document.getElementById('revenue').value) || 0;
+            const cogs = parseFloat(document.getElementById('cogs').value) || 0;
+            const opex = parseFloat(document.getElementById('opex').value) || 0;
+            const inInv = parseFloat(document.getElementById('investIn').value) || 0;
+            const outInv = parseFloat(document.getElementById('investOut').value) || 0;
+            const outFin = parseFloat(document.getElementById('financeOut').value) || 0;
+
+            const totalIn = rev + inInv;
+            const totalOut = cogs + opex + outInv + outFin;
+            const netFlow = totalIn - totalOut;
+
+            // UI Display
+            const resEl = document.getElementById('netFlowRes');
+            resEl.innerText = (netFlow >= 0 ? "+$" : "-$") + Math.abs(netFlow).toLocaleString(undefined, {minimumFractionDigits: 2});
+            resEl.className = netFlow >= 0 ? "res-main text-green-600" : "res-main text-red-600";
+            
+            document.getElementById('totalInRes').innerText = "$" + totalIn.toLocaleString();
+            document.getElementById('totalOutRes').innerText = "$" + totalOut.toLocaleString();
+
+            updateCharts(totalIn, totalOut, netFlow);
+            updateTable(totalIn, totalOut, netFlow);
+        }
+
+        function updateCharts(inflow, outflow, net) {
+            // 1. Pie Chart
+            const ctx1 = document.getElementById('cashPieChart').getContext('2d');
+            if (pChart) pChart.destroy();
+            pChart = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cash Inflows', 'Cash Outflows'],
+                    datasets: [{ data: [inflow, outflow], backgroundColor: ['#00509d', '#ef4444'], borderWidth: 0 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+            });
+
+            // 2. Line Chart (📈 Projection)
+            const ctx2 = document.getElementById('cashLineChart').getContext('2d');
+            if (lChart) lChart.destroy();
+            
+            const labels = ['Start', 'M1', 'M2', 'M3', 'M4', 'M5', 'M6'];
+            const data = labels.map((l, i) => net * i);
+
+            lChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Cumulative Cash Position',
+                        data: data,
+                        borderColor: '#00509d',
+                        backgroundColor: 'rgba(0, 80, 157, 0.05)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { y: { ticks: { callback: (val) => '$' + val.toLocaleString() } } }
+                }
+            });
+        }
+
+        function updateTable(tin, tout, net) {
+            const body = document.getElementById('tableBody');
+            body.innerHTML = "";
+            const scenarios = [
+                { name: 'Monthly Audit', in: tin, out: tout, net: net },
+                { name: 'Quarterly Audit', in: tin*3, out: tout*3, net: net*3 },
+                { name: 'Annual Audit', in: tin*12, out: tout*12, net: net*12 }
+            ];
+
+            scenarios.forEach(s => {
+                body.innerHTML += `<tr>
+                    <td>${s.name}</td>
+                    <td>$${s.in.toLocaleString()}</td>
+                    <td>$${s.out.toLocaleString()}</td>
+                    <td class="${s.net >= 0 ? 'text-green-600' : 'text-red-600'} font-bold">$${s.net.toLocaleString()}</td>
+                    <td class="font-bold">${s.net >= 0 ? 'Liquid' : 'Strained'}</td>
+                </tr>`;
+            });
+        }
+
+        function downloadCSV() {
+            let csv = "Type,Inflow,Outflow,Net\n";
+            document.querySelectorAll("#dataTable tbody tr").forEach(row => {
+                csv += Array.from(row.querySelectorAll("td")).map(c => c.innerText.replace(/[$,]/g, "")).join(",") + "\n";
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'cash_flow_audit.csv'; a.click();
+        }
+
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFontSize(18); doc.text("DailyCalculator Institutional Cash Flow Audit", 14, 20);
+            doc.autoTable({ html: '#dataTable', startY: 30 });
+            doc.save("cash_flow_report.pdf");
+        }
+
+        window.onload = calculate;
+    </script>
+</body>
+</html>
