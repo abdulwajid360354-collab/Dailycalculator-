@@ -1,44 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://dailycalculater.pages.dev/</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://dailycalculater.pages.dev/home.html</loc>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://dailycalculater.pages.dev/about.html</loc>
-    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dailycalculater.pages.dev/privacy.html</loc>
-    <priority>0.7</priority>
+    <loc>https://dailycalculater.pages.dev/accuracy.html</loc>
   </url>
 
   <url>
-    <loc>https://dailycalculater.pages.dev/iso.html</loc>
-    <priority>0.8</priority>
+    <loc>https://dailycalculater.pages.dev/bandwidth.html</loc>
   </url>
 
   <url>
-    <loc>https://dailycalculater.pages.dev/math.html</loc>
-    <priority>0.8</priority>
+    <loc>https://dailycalculater.pages.dev/binary.html</loc>
   </url>
 
   <url>
     <loc>https://dailycalculater.pages.dev/construction.html</loc>
-    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dailycalculater.pages.dev/financial.html</loc>
-    <priority>0.8</priority>
+    <loc>https://dailycalculater.pages.dev/break-even.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/engineering.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/finance.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/health.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/home.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/inventory.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/iso.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/math.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/payroll.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/privacy.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/productivity.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/profit.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/raid.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/storage.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/subnet.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/terms.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dailycalculater.pages.dev/vat.html</loc>
   </url>
 
 </urlset>
